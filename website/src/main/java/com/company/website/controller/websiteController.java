@@ -19,9 +19,8 @@ public class websiteController {
 
 
     @RequestMapping("/hello")
-    public String hello(Model m){
-        m.addAttribute("now",DateFormat.getDateTimeInstance().format(new Date()));
-        return "hello";
+    public String hello(){
+        return "index";
     }
 
 
