@@ -35,7 +35,7 @@
                 <div class="row align-items-center">
                     <div class="col-10 col-lg-3">
                         <h1 class="site-branding flex">
-                            <a href="#">SUNFEST</a>
+                            <a href="#">SiaoMi</a>
                         </h1>
                     </div>
 
@@ -51,7 +51,7 @@
                             <ul>
                                 <li><a href="/index">HOME</a></li>
                                 <li><a href="/elements">SiaoMi 2018</a></li>
-                                <li><a href="/ticket">ARTISTS</a></li>
+                                <li><a href="/ticket">TICKETS</a></li>
                                 <li><a href="/blog">BLOG</a></li>
                                 <li><a href="/contact">CONTACT</a></li>
                                 <li><a href="#"><i class="fas fa-search"></i></a></li>
@@ -199,7 +199,7 @@
 
                             <div class="testimonial-content">
                                 <header class="entry-header">
-                                    <h2 class="entry-title">We love sunfest</h2>
+                                    <h2 class="entry-title">We love SiaoMi</h2>
                                 </header><!-- .entry-header -->
 
                                 <div class="entry-content">
@@ -221,7 +221,7 @@
 
                             <div class="testimonial-content">
                                 <header class="entry-header">
-                                    <h2 class="entry-title">We love sunfest</h2>
+                                    <h2 class="entry-title">We love SiaoMi</h2>
                                 </header><!-- .entry-header -->
 
                                 <div class="entry-content">
@@ -243,7 +243,7 @@
 
                             <div class="testimonial-content">
                                 <header class="entry-header">
-                                    <h2 class="entry-title">We love sunfest</h2>
+                                    <h2 class="entry-title">We love SiaoMi</h2>
                                 </header><!-- .entry-header -->
 
                                 <div class="entry-content">
@@ -274,7 +274,7 @@
 
     <footer class="site-footer">
         <div class="footer-cover-title flex justify-content-center align-items-center">
-            <h2>SUNFEST</h2>
+            <h2>SiaoMi</h2>
         </div><!-- .site-footer -->
 
         <div class="footer-content-wrapper">
@@ -282,11 +282,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="entry-title">
-                            <a href="#">SUNFEST</a>
+                            <a href="#">SiaoMi</a>
                         </div><!-- entry-title -->
 
                         <div class="entry-mail">
-                            <a href="#">SAYHELLO@SUNFEST.COM</a>
+                            <a href="#">SAYHELLO@SiaoMi.COM</a>
                         </div><!-- .entry-mail -->
 
                         <div class="copyright-info">

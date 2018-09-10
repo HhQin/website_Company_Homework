@@ -50,7 +50,7 @@
                         <ul>
                             <li><a href="/index">HOME</a></li>
                             <li><a href="/elements">SiaoMi 2018</a></li>
-                            <li><a href="/ticket">ARTISTS</a></li>
+                            <li><a href="/ticket">TICKETS</a></li>
                             <li><a href="/blog">BLOG</a></li>
                             <li><a href="/contact">CONTACT</a></li>
                             <li><a href="#"><i class="fas fa-search"></i></a></li>
@@ -108,8 +108,8 @@
             <div class="col-12">
                 <div class="lineup-artists-headline">
                     <div class="entry-title">
-                        <p>JUST THE BEST</p>
-                        <h2>The Lineup Artists-Headliners</h2>
+                        <p>SiaoMi 2018</p>
+                        <h2>The Main HighLights</h2>
                     </div><!-- entry-title -->
 
                     <div class="lineup-artists">
@@ -121,11 +121,11 @@
                             <div class="lineup-artists-description">
                                 <div class="lineup-artists-description-container">
                                     <div class="entry-title">
-                                        Jamila Williams
+                                        SiaoMi Mix2
                                     </div><!-- entry-title -->
 
                                     <div class="entry-content">
-                                        <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum. </p>
+                                        <p>The 5.99-inch display has the same holding feel as the 5.5-inch traditional 16:9 phone. The millet MIX2 USES a four-curved ceramic body, the camera decoration ring is all 18K gold-plated, and the body frame part is made of 7 series aluminum. </p>
                                     </div><!-- entry-content -->
 
                                     <div class="box-link">
@@ -143,11 +143,11 @@
 
                                 <div class="lineup-artists-description-container">
                                     <div class="entry-title">
-                                        Sandra Superstar
+                                        SiaoMi No.9 balancing car
                                     </div><!-- entry-title -->
 
                                     <div class="entry-content">
-                                        <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum. </p>
+                                        <p>No. 9 is small in size and weighs only 12.8kg. It has super high performance and can reach a speed of 16km/h. It is equipped with two direct drive motors, with a total output power of up to 700 watts and instantaneous power of over 2,000 watts. </p>
                                     </div><!-- entry-content -->
 
                                     <div class="box-link">
@@ -169,11 +169,11 @@
                             <div class="lineup-artists-description">
                                 <div class="lineup-artists-description-container">
                                     <div class="entry-title">
-                                        DJ Crazyhead
+                                        SiaoMi Notebook Pro
                                     </div><!-- entry-title -->
 
                                     <div class="entry-content">
-                                        <p>Quisque at erat eu libero consequat tempus. Quisque mole stie convallis tempus. Ut semper purus metus, a euismod sapien sodales ac. Duis viverra eleifend fermentum. </p>
+                                        <p>The 12.5-inch siaomi laptop features ultra-thin, portable, metal body like the apple MacBook, while the 15.6-inch model features gaming capabilities. Offers a fourth-generation core i7 processor with a built-in NVIDIAGeForce GTX 760M graphics card and 8GB memory. </p>
                                     </div><!-- entry-content -->
 
                                     <div class="box-link">
@@ -192,8 +192,8 @@
             <div class="col-12">
                 <div class="the-complete-lineup">
                     <div class="entry-title">
-                        <p>JUST THE BEST</p>
-                        <h2>The Complete Lineup</h2>
+                        <p>SiaoMi 2018</p>
+                        <h2>The Lineup Tech-Headliners</h2>
                     </div><!-- entry-title -->
 
                     <div class="row the-complete-lineup-artists">
@@ -203,7 +203,7 @@
                                 <a href="#" class="box-link"> <img src="images/box.jpg" alt=""> </a>
                             </figure><!-- featured-image -->
 
-                            <h2>Miska Smith</h2>
+                            <h2>A</h2>
                         </div><!-- artist-single -->
 
                         <div class="col-6 col-md-4 col-lg-3 artist-single">
@@ -212,7 +212,7 @@
                                 <a href="#" class="box-link"> <img src="images/box.jpg" alt=""> </a>
                             </figure><!-- featured-image -->
 
-                            <h2>Hayley Down</h2>
+                            <h2>B</h2>
                         </div><!-- artist-single -->
 
                         <div class="col-6 col-md-4 col-lg-3 artist-single">
@@ -221,7 +221,7 @@
                                 <a href="#" class="box-link"> <img src="images/box.jpg" alt=""> </a>
                             </figure><!-- featured-image -->
 
-                            <h2>The Band Song</h2>
+                            <h2>C</h2>
                         </div><!-- artist-single -->
 
                         <div class="col-6 col-md-4 col-lg-3 artist-single">
@@ -230,7 +230,7 @@
                                 <a href="#" class="box-link"> <img src="images/box.jpg" alt=""> </a>
                             </figure><!-- featured-image -->
 
-                            <h2>Pink Machine</h2>
+                            <h2>D</h2>
                         </div><!-- artist-single -->
 
                         <div class="col-6 col-md-4 col-lg-3 artist-single">
@@ -239,7 +239,7 @@
                                 <a href="#" class="box-link"> <img src="images/box.jpg" alt=""> </a>
                             </figure><!-- featured-image -->
 
-                            <h2>Brasil Band</h2>
+                            <h2>E</h2>
                         </div><!-- artist-single -->
 
                         <div class="col-6 col-md-4 col-lg-3 artist-single">
@@ -248,7 +248,7 @@
                                 <a href="#" class="box-link"> <img src="images/box.jpg" alt=""> </a>
                             </figure><!-- featured-image -->
 
-                            <h2>Mickey</h2>
+                            <h2>F</h2>
                         </div><!-- artist-single -->
 
                         <div class="col-6 col-md-4 col-lg-3 artist-single">
@@ -257,7 +257,7 @@
                                 <a href="#" class="box-link"> <img src="images/box.jpg" alt=""> </a>
                             </figure><!-- featured-image -->
 
-                            <h2>DJ Girl</h2>
+                            <h2>G</h2>
                         </div><!-- artist-single -->
 
                         <div class="col-6 col-md-4 col-lg-3 artist-single">
@@ -266,7 +266,7 @@
                                 <a href="#" class="box-link"> <img src="images/box.jpg" alt=""> </a>
                             </figure><!-- featured-image -->
 
-                            <h2>Stan Smith</h2>
+                            <h2>H</h2>
                         </div><!-- artist-single -->
                     </div><!-- the-complete-lineup-artists -->
 
@@ -287,8 +287,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="entry-title">
-                        <p>JUST THE BEST</p>
-                        <h2>Our Next Events</h2>
+                        <p>SiaoMi 2018</p>
+                        <h2>Events Before</h2>
                     </div><!-- entry-title -->
                 </div><!-- col-12 -->
             </div><!-- row -->
@@ -303,8 +303,8 @@
                                 <img src="images/next-event-1.jpg" alt="">
 
                                 <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
-                                    <h3>Welcoming Party 2018</h3>
-                                    <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
+                                    <h3>Welcoming SiaoMi 2018</h3>
+                                    <p>ZhongGuan Park, Beijing, China</p>
                                 </a>
                             </figure><!-- featured-image -->
                         </div><!-- next-event-content -->
@@ -316,8 +316,8 @@
                                 <img src="images/next-event-2.jpg" alt="">
 
                                 <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
-                                    <h3>Welcoming Party 2018</h3>
-                                    <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
+                                    <h3>Welcoming SiaoMi 2018</h3>
+                                    <p>ZhongGuan Park, Beijing, China</p>
                                 </a>
                             </figure><!-- featured-image -->
                         </div><!-- next-event-content -->
@@ -329,8 +329,8 @@
                                 <img src="images/next-event-3.jpg" alt="">
 
                                 <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
-                                    <h3>Welcoming Party 2018</h3>
-                                    <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
+                                    <h3>Welcoming SiaoMi 2018</h3>
+                                    <p>ZhongGuan Park, Beijing, China</p>
                                 </a>
                             </figure><!-- featured-image -->
                         </div><!-- next-event-content -->
@@ -342,8 +342,8 @@
                                 <img src="images/next-event-1.jpg" alt="">
 
                                 <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
-                                    <h3>Welcoming Party 2018</h3>
-                                    <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
+                                    <h3>Welcoming SiaoMi 2018</h3>
+                                    <p>ZhongGuan Park, Beijing, China</p>
                                 </a>
                             </figure><!-- featured-image -->
                         </div><!-- next-event-content -->
@@ -355,8 +355,8 @@
                                 <img src="images/next-event-2.jpg" alt="">
 
                                 <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
-                                    <h3>Welcoming Party 2018</h3>
-                                    <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
+                                    <h3>Welcoming SiaoMi 2018</h3>
+                                    <p>ZhongGuan Park, Beijing, China</p>
                                 </a>
                             </figure><!-- featured-image -->
                         </div><!-- next-event-content -->
@@ -368,8 +368,8 @@
                                 <img src="images/next-event-3.jpg" alt="">
 
                                 <a href="#" class="entry-content flex flex-column justify-content-center align-items-center">
-                                    <h3>Welcoming Party 2018</h3>
-                                    <p>Green Palace, 22 Street, 23-28, Los Angeles California</p>
+                                    <h3>Welcoming SiaoMi 2018</h3>
+                                    <p>ZhongGuan Park, Beijing, China</p>
                                 </a>
                             </figure><!-- featured-image -->
                         </div><!-- next-event-content -->
@@ -387,7 +387,7 @@
         <div class="container">
             <div class="header">
                 <div class="entry-title">
-                    <p>JUST THE BEST</p>
+                    <p>SiaoMi 2018</p>
                     <h2>Our Last News</h2>
                 </div><!-- entry-title -->
             </div><!-- header -->
@@ -400,19 +400,19 @@
                         </figure><!-- featured-image -->
 
                         <div class="box-link-date">
-                            <a href="#">03.12.18</a>
+                            <a href="#">2018.7.28</a>
                         </div>
 
                         <div class="content-wrapper">
                             <div class="entry-content">
                                 <div class="entry-header">
-                                    <h2><a href="#">10 Festival Tips</a></h2>
+                                    <h2><a href="#">10 MiFans Festival Tips</a></h2>
                                 </div><!-- entry-header -->
 
                                 <div class="entry-meta">
                                     <span class="author-name"><a href="#"> By James Williams</a></span>
                                     <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
+                                    <span class="comments-count"><a href="#">3 clicks</a></span>
                                 </div><!-- entry-meta -->
 
                                 <div class="entry-description">
@@ -427,7 +427,7 @@
 
                     <div class="col-12 col-md-6">
                         <figure class="featured-image">
-                            <a href="#"> <img src="images/news-image-1.jpg" alt="fesival+celebration"> </a>
+                            <a href="#"> <img src="images/news-image-3.jpg" alt="fesival+celebration"> </a>
                         </figure><!-- featured-image -->
 
                         <div class="box-link-date">
@@ -437,20 +437,19 @@
                         <div class="content-wrapper">
                             <div class="entry-content">
                                 <div class="entry-header">
-                                    <h2><a href="#">New event calendar for this year</a></h2>
+                                    <h2><a href="#">New event about Mi2018 for this year</a></h2>
                                 </div><!-- entry-header -->
 
                                 <div class="entry-meta">
-                                    <span class="author-name"><a href="#">By James Williams</a></span>
+                                    <span class="author-name"><a href="#">By Hollis Williams</a></span>
                                     <span class="space">|</span>
-                                    <span class="comments-count"><a href="#">3 comments</a></span>
+                                    <span class="comments-count"><a href="#">3 clicks</a></span>
                                 </div><!-- entry-meta -->
 
                                 <div class="entry-description">
-                                    <p>Quisque at erat eu libero consequat tempus.
-                                        Quisque mole stie convallis tempus.
-                                        Ut semper purus metus, a euismod sapien sodales ac.
-                                        Duis viverra eleifend fermentum.</p>
+                                    <p>Stie convallis tempusut semper purus metus, a euismod sapien sodales ac.
+                                        Duis viverra eleifend fermentumQuisque at erat eu libero consequat tempus.
+                                        Quisque mole .</p>
                                 </div><!-- entry-description -->
                             </div><!-- entry-content -->
                         </div><!-- .content-wrapper -->
@@ -471,16 +470,16 @@
             <div class="row">
                 <div class="col-12">
                     <div class="entry-title">
-                        <a href="#">SUNFEST</a>
+                        <a href="#">SiaoMi</a>
                     </div><!-- entry-title -->
 
                     <div class="entry-mail">
-                        <a href="#">SAYHELLO@SUNFEST.COM</a>
+                        <a href="#">SAYHELLO@SiaoMi.COM</a>
                     </div><!-- .entry-mail -->
 
                     <div class="copyright-info">
 
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | by Colorlib- More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | by SiaoMi.com
 
                     </div><!-- copyright-info -->
 

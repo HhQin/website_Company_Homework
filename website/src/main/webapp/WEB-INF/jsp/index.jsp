@@ -50,7 +50,7 @@
                             <ul>
                                 <li><a href="/index">HOME</a></li>
                                 <li><a href="/elements">SiaoMi 2018</a></li>
-                                <li><a href="/ticket">ARTISTS</a></li>
+                                <li><a href="/ticket">TICKETS</a></li>
                                 <li><a href="/blog">BLOG</a></li>
                                 <li><a href="/contact">CONTACT</a></li>
                                 <li><a href="#"><i class="fas fa-search"></i></a></li>

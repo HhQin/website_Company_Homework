@@ -35,7 +35,7 @@
                 <div class="row align-items-center">
                     <div class="col-10 col-lg-4">
                         <h1 class="site-branding flex">
-                            <a href="#">SUNFEST</a>
+                            <a href="#">SiaoMi</a>
                         </h1>
                     </div>
 
@@ -189,7 +189,7 @@
 
     <footer class="site-footer">
         <div class="footer-cover-title flex justify-content-center align-items-center">
-            <h2>SUNFEST</h2>
+            <h2>SiaoMi</h2>
         </div><!-- .site-footer -->
 
         <div class="footer-content-wrapper">
@@ -197,11 +197,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="entry-title">
-                            <a href="#">SUNFEST</a>
+                            <a href="#">SiaoMi</a>
                         </div><!-- entry-title -->
 
                         <div class="entry-mail">
-                            <a href="#">SAYHELLO@SUNFEST.COM</a>
+                            <a href="#">SAYHELLO@SiaoMi.COM</a>
                         </div><!-- .entry-mail -->
 
                         <div class="copyright-info">

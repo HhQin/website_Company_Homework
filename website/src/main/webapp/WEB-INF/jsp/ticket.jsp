@@ -26,6 +26,14 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="${styleCss}">
+
+    <style type="text/css">
+        html,body{margin:0;padding:0;}
+        .iw_poi_title {color:#CC5522;font-size:14px;font-weight:bold;overflow:hidden;padding-right:13px;white-space:nowrap}
+        .iw_poi_content {font:12px arial,sans-serif;overflow:visible;padding-top:4px;white-space:-moz-pre-wrap;word-wrap:break-word}
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.1&services=true"></script>
+
 </head>
 
 <body class="tickets-page">
@@ -36,7 +44,7 @@
                 <div class="row align-items-center">
                     <div class="col-10 col-lg-4">
                         <h1 class="site-branding flex">
-                            <a href="#">SUNFEST</a>
+                            <a href="#">SiaoMi</a>
                         </h1>
                     </div>
 
@@ -52,7 +60,7 @@
                             <ul>
                                 <li><a href="/index">HOME</a></li>
                                 <li><a href="/elements">SiaoMi 2018</a></li>
-                                <li><a href="/ticket">ARTISTS</a></li>
+                                <li><a href="/ticket">TICKETS</a></li>
                                 <li><a href="/blog">BLOG</a></li>
                                 <li><a href="/contact">CONTACT</a></li>
                                 <li><a href="#"><i class="fas fa-search"></i></a></li>
@@ -95,9 +103,6 @@
                     <div class="tabs">
                         <ul class="tabs-nav flex">
                             <li class="tab-nav flex justify-content-center align-items-center active" data-target="#tab_details">Details</li>
-                            <li class="tab-nav flex justify-content-center align-items-center" data-target="#tab_venue">Venue</li>
-                            <li class="tab-nav flex justify-content-center align-items-center" data-target="#tab_organizers">Organizers</li>
-                            <li class="tab-nav flex justify-content-center align-items-center" data-target="#tab_about">About the event</li>
                         </ul><!-- tabs-nav -->
 
                         <div class="tabs-container">
@@ -106,17 +111,12 @@
                                     <div class="single-event-details">
                                         <div class="single-event-details-row">
                                             <label>Start:</label>
-                                            <p>June 17 @ 09:00 am</p>
+                                            <p>October 08 @ 19:30 am</p>
                                         </div>
 
                                         <div class="single-event-details-row">
                                             <label>End:</label>
-                                            <p>June 22 @ 07:30 am</p>
-                                        </div>
-
-                                        <div class="single-event-details-row">
-                                            <label>Price:</label>
-                                            <p class="sold-out">$89 <span>Sold Out</span></p>
+                                            <p>October 08 @ 23:00 am</p>
                                         </div>
 
                                         <div class="single-event-details-row">
@@ -128,24 +128,17 @@
                                             <label>Tags:</label>
                                             <p><a href="#">festivals</a>, <a href="#">music</a>, <a href="#">concert</a></p>
                                         </div>
+
+                                        <div class="single-event-details-row">
+                                            <label>Place</label>
+                                            <p>ZhongGuan Park, Beijing, China</p>
+                                        </div>
                                     </div>
 
                                     <div class="single-event-map">
-                                        <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=university of san francisco&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+                                        <div style="width:697px;height:550px;border:#ccc solid 1px;" id="dituContent"></div>
                                     </div>
                                 </div>
-                            </div><!-- .tab-content -->
-
-                            <div id="tab_venue" class="tab-content">
-                                <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum, diam odio tempor purus, at ultrices elit nulla ac nisl. Vestibulum enim sapien, blandit finibus elit vitae, venenatis tempor enim. </p>
-                            </div><!-- .tab-content -->
-
-                            <div id="tab_organizers" class="tab-content">
-                                <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum, diam odio tempor purus, at ultrices elit nulla ac nisl. Vestibulum enim sapien, blandit finibus elit vitae, venenatis tempor enim. </p>
-                            </div><!-- .tab-content -->
-
-                            <div id="tab_about" class="tab-content">
-                                <p>Curabitur venenatis efficitur lorem sed tempor. Integer aliquet tempor cursus. Nullam vestibulum convallis risus vel condimentum. Nullam auctor lorem in libero luctus, vel volutpat quam tincidunt. Morbi sodales, dolor id ultricies dictum, diam odio tempor purus, at ultrices elit nulla ac nisl. Vestibulum enim sapien, blandit finibus elit vitae, venenatis tempor enim. </p>
                             </div><!-- .tab-content -->
                         </div><!-- .tabs-container -->
                     </div><!-- .tabs -->
@@ -273,7 +266,7 @@
 
     <footer class="site-footer">
         <div class="footer-cover-title flex justify-content-center align-items-center">
-            <h2>SUNFEST</h2>
+            <h2>SiaoMi</h2>
         </div><!-- .site-footer -->
 
         <div class="footer-content-wrapper">
@@ -281,11 +274,11 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="entry-title">
-                            <a href="#">SUNFEST</a>
+                            <a href="#">SiaoMi</a>
                         </div><!-- entry-title -->
 
                         <div class="entry-mail">
-                            <a href="#">SAYHELLO@SUNFEST.COM</a>
+                            <a href="#">SAYHELLO@SiaoMi.COM</a>
                         </div><!-- .entry-mail -->
 
                         <div class="copyright-info">
@@ -309,6 +302,48 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             </div><!-- container -->
         </div><!-- footer-content-wrapper -->
     </footer><!-- site-footer -->
+
+    <script type="text/javascript">
+        //创建和初始化地图函数：
+        function initMap(){
+            createMap();//创建地图
+            setMapEvent();//设置地图事件
+            addMapControl();//向地图添加控件
+        }
+
+        //创建地图函数：
+        function createMap(){
+            var map = new BMap.Map("dituContent");//在百度地图容器中创建一个地图
+            var point = new BMap.Point(116.323066,39.989956);//定义一个中心点坐标
+            map.centerAndZoom(point,17);//设定地图的中心点和坐标并将地图显示在地图容器中
+            window.map = map;//将map变量存储在全局
+        }
+
+        //地图事件设置函数：
+        function setMapEvent(){
+            map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+            map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+            map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+            map.enableKeyboard();//启用键盘上下左右键移动地图
+        }
+
+        //地图控件添加函数：
+        function addMapControl(){
+            //向地图中添加缩放控件
+            var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+            map.addControl(ctrl_nav);
+            //向地图中添加缩略图控件
+            var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:1});
+            map.addControl(ctrl_ove);
+            //向地图中添加比例尺控件
+            var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+            map.addControl(ctrl_sca);
+        }
+
+
+        initMap();//创建和初始化地图
+    </script>
+
 
     <script type='text/javascript' src='${js}/jquery.js'></script>
     <script type='text/javascript' src='${js}/masonry.pkgd.min.js'></script>
