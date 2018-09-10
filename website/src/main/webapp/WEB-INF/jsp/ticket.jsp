@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en" dir="ltr">
 <head>
     <!-- Required meta tags -->
@@ -7,18 +10,22 @@
 
     <title>Hello World!</title>
 
+    <c:url value="/css" var="css" />
+    <c:url value="/js" var="js" />
+    <c:url value="/style.css" var="styleCss" />
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="${css}/bootstrap.min.css">
 
     <!-- FontAwesome CSS -->
-    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="${css}/fontawesome-all.min.css">
 
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="${css}/swiper.min.css">
 
     <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="${styleCss}">
 </head>
 
 <body class="tickets-page">
@@ -43,11 +50,11 @@
                             </div><!-- .hamburger-menu -->
 
                             <ul>
-                                <li><a href="index.html">HOME</a></li>
-                                <li><a href="elements.html">SUNFEST 2018</a></li>
-                                <li><a href="ticket.html">ARTISTS</a></li>
-                                <li><a href="blog.html">BLOG</a></li>
-                                <li><a href="contact.html">CONTACT</a></li>
+                                <li><a href="/index">HOME</a></li>
+                                <li><a href="/elements">SiaoMi 2018</a></li>
+                                <li><a href="/ticket">ARTISTS</a></li>
+                                <li><a href="/blog">BLOG</a></li>
+                                <li><a href="/contact">CONTACT</a></li>
                                 <li><a href="#"><i class="fas fa-search"></i></a></li>
                             </ul><!-- flex -->
                         </nav><!-- .site-navigation -->
@@ -303,13 +310,13 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div><!-- footer-content-wrapper -->
     </footer><!-- site-footer -->
 
-    <script type='text/javascript' src='js/jquery.js'></script>
-    <script type='text/javascript' src='js/masonry.pkgd.min.js'></script>
-    <script type='text/javascript' src='js/jquery.collapsible.min.js'></script>
-    <script type='text/javascript' src='js/swiper.min.js'></script>
-    <script type='text/javascript' src='js/jquery.countdown.min.js'></script>
-    <script type='text/javascript' src='js/circle-progress.min.js'></script>
-    <script type='text/javascript' src='js/jquery.countTo.min.js'></script>
-    <script type='text/javascript' src='js/custom.js'></script>
+    <script type='text/javascript' src='${js}/jquery.js'></script>
+    <script type='text/javascript' src='${js}/masonry.pkgd.min.js'></script>
+    <script type='text/javascript' src='${js}/jquery.collapsible.min.js'></script>
+    <script type='text/javascript' src='${js}/swiper.min.js'></script>
+    <script type='text/javascript' src='${js}/jquery.countdown.min.js'></script>
+    <script type='text/javascript' src='${js}/circle-progress.min.js'></script>
+    <script type='text/javascript' src='${js}/jquery.countTo.min.js'></script>
+    <script type='text/javascript' src='${js}/custom.js'></script>
 </body>
 </html>
