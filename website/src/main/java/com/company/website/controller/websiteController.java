@@ -1,27 +1,20 @@
 package com.company.website.controller;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import java.text.DateFormat;
-import java.util.Date;
-
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
- * author：christopher 2017/8/30
+ * author：christopher 2018/8/30
  */
+
 @Controller
-@EnableAutoConfiguration
+@RequestMapping("/")
 public class websiteController {
 
-
     @RequestMapping("/hello")
-    public String hello(){
+    public String index() {
         return "index";
     }
-
-
 }
