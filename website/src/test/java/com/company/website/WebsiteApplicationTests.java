@@ -19,9 +19,22 @@ public class WebsiteApplicationTests {
 	UserService userService;
 
 	@Test
-	public void estUserService() {
+	public void testFindIdByName() {
 		User user = userService.findIdByName("hello");
 		System.out.println(user.getId());
 	}
 
+	@Test
+	public void testCreateNewUser(){
+		userService.createNewUser("zhangsan",22);
+	}
+
+	@Test
+	public void testDeleteUserById(){
+		userService.deleteUserById(25);
+	}
+	@Test
+	public void testUpdateUserByName(){
+		userService.updateUserByName("Lisi",95);
+	}
 }
