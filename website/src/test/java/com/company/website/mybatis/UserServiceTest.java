@@ -34,6 +34,6 @@ public class UserServiceTest {
     }
     @Test
     public void testUpdateUserByName(){
-        userService.updateUserByName("Lisi",95);
+        userService.updateUserByName("Lisi",20);
     }
 }

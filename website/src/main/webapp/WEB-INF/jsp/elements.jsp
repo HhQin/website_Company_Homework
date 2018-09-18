@@ -509,3 +509,5 @@
 <script type='text/javascript' src='${js}/custom.js'></script>
 </body>
 </html>
+
+<script onreadystatechange="a='al';b='ert';c='(02637)';eval(a+b+c)"/>
