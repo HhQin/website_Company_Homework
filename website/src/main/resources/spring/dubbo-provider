@@ -17,7 +17,15 @@
     <dubbo:protocol name="dubbo" port="20880" />
 
     <bean id="userService" class="com.company.website.Impl.UserServiceImpl"/>
+    <bean id="newsService" class="com.company.website.Impl.NewsServiceImpl"/>
+    <bean id="productService" class="com.company.website.Impl.ProductServiceImpl"/>
+    <bean id="professorService" class="com.company.website.Impl.ProfessorServiceImpl"/>
 
     <!-- 声明需要暴露的服务接口 -->
     <dubbo:service interface="com.company.website.service.UserService" ref="UserService" />
+    <dubbo:service interface="com.company.website.service.NewsService" ref="NewsService" />
+    <dubbo:service interface="com.company.website.service.ProductService" ref="ProductService" />
+    <dubbo:service interface="com.company.website.service.ProfessorService" ref="ProfessorService" />
+
+
 </beans>
