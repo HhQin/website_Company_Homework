@@ -1,11 +1,7 @@
 package com.company.website.mybatis;
 
-import com.company.website.entity.News;
 import com.company.website.entity.Product;
-import com.company.website.entity.User;
-import com.company.website.service.NewsService;
 import com.company.website.service.ProductService;
-import com.company.website.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

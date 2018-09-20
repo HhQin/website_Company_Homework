@@ -121,11 +121,11 @@
                             <div class="lineup-artists-description">
                                 <div class="lineup-artists-description-container">
                                     <div class="entry-title">
-                                        SiaoMi Mix2
+                                        ${product.get(2).getProductName()}
                                     </div><!-- entry-title -->
 
                                     <div class="entry-content">
-                                        <p>The 5.99-inch display has the same holding feel as the 5.5-inch traditional 16:9 phone. The millet MIX2 USES a four-curved ceramic body, the camera decoration ring is all 18K gold-plated, and the body frame part is made of 7 series aluminum. </p>
+                                        <p>${product.get(2).getProductIntroduce()} </p>
                                     </div><!-- entry-content -->
 
                                     <div class="box-link">
@@ -143,11 +143,11 @@
 
                                 <div class="lineup-artists-description-container">
                                     <div class="entry-title">
-                                        SiaoMi No.9 balancing car
+                                        ${product.get(1).getProductName()}
                                     </div><!-- entry-title -->
 
                                     <div class="entry-content">
-                                        <p>No. 9 is small in size and weighs only 12.8kg. It has super high performance and can reach a speed of 16km/h. It is equipped with two direct drive motors, with a total output power of up to 700 watts and instantaneous power of over 2,000 watts. </p>
+                                        <p>${product.get(1).getProductIntroduce()} </p>
                                     </div><!-- entry-content -->
 
                                     <div class="box-link">
@@ -169,11 +169,11 @@
                             <div class="lineup-artists-description">
                                 <div class="lineup-artists-description-container">
                                     <div class="entry-title">
-                                        SiaoMi Notebook Pro
+                                        ${product.get(0).getProductName()}
                                     </div><!-- entry-title -->
 
                                     <div class="entry-content">
-                                        <p>The 12.5-inch siaomi laptop features ultra-thin, portable, metal body like the apple MacBook, while the 15.6-inch model features gaming capabilities. Offers a fourth-generation core i7 processor with a built-in NVIDIAGeForce GTX 760M graphics card and 8GB memory. </p>
+                                        <p>${product.get(0).getProductIntroduce()} </p>
                                     </div><!-- entry-content -->
 
                                     <div class="box-link">
