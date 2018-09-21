@@ -21,6 +21,6 @@ public class ProfessorServiceImpl implements ProfessorService {
 
     @Override
     public int createNewProfessor(String professorName,String professorIntroduce){
-        return professorMapper.createNewProfessor("Christopner","A Chinese Professor");
+        return professorMapper.createNewProfessor(professorName,professorIntroduce);
     }
 }

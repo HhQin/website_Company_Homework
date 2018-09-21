@@ -21,7 +21,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Override
     public int createNewNews(String title,String simpleIntroduce,String particularIntroduce){
-        return newsMapper.createNewNews("testTitle","testSimpleIntroduce","testParticularIntroduce");
+        return newsMapper.createNewNews(title,simpleIntroduce,particularIntroduce);
     }
 
 }
