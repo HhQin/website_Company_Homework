@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+        
+     
+<head>
+        <!-- DataTables CSS --> 
+
+<!-- DataTables CSS --> 
+<link rel="stylesheet" type="text/css" href="databases/media/css/jquery.dataTables.css"> 
+<!-- jQuery --> 
+<script src="databases/media/js/jquery.js" type="text/javascript"> </script> 
+<!-- DataTables --> 
+<script type="text/javascript" charset="utf8" src="databases/media/js/jquery.dataTables.min.js"></script>
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+
+ 
+</head>
+
+
+
+<body>
+        <!-- HTML代码片段中请勿添加<body>标签 //--> <div>
+                <div style="width:50%">
+                        <table id="table_id_example1" class="display">
+                                <thead>
+                                   <tr>
+                                       <th>日期</th>
+                                       <th>时间</th> 
+                                       <th>课程</th> 
+                                       <th>授课教练</th>
+                                   </tr> 
+                               </thead> 
+                               <tbody> 
+                                   <tr> 
+                                       <td>2018年11月28日</td> 
+                                       <td>14：00--16：00</td> 
+                                       <td>动感单车</td>
+                                       <td>戴一</td>
+                                   </tr> 
+                                   <tr> 
+                                       <td>2018年11月28日</td> 
+                                       <td>16：00--18：00</td> 
+                                       <td>拳击</td>
+                                       <td>戴二</td>
+                                    </tr> 
+                                    <tr> 
+                                      <td>2018年11月28日</td> 
+                                       <td>18：00--20：00</td> 
+                                       <td>卷腹</td>
+                                       <td>戴三</td>
+                                   </tr> 
+                                   <tr> 
+                                      <td>2018年11月29日</td> 
+                                       <td>14：00--16：00</td> 
+                                       <td>哑铃</td>
+                                       <td>戴四</td>
+                                    </tr> 
+                                    <tr> 
+                                      <td>2018年11月29日</td> 
+                                       <td>16：00--18：00</td> 
+                                       <td>专项课</td>
+                                       <td>戴五</td>
+                                   </tr>  
+                               </tbody> 
+                           </table>
+                           <script>
+                                   $(document).ready(function () {
+                                       $('#table_id_example1').DataTable();
+                                   });
+                               </script>
+                   </div>
+                </div>
+            <a>hello</a><br>
+            <a id="hello">导出表格</a>
+
+    <script>
+        // 使用outerHTML属性获取整个table元素的HTML代码（包括<table>标签），然后包装成一个完整的HTML文档，设置charset为urf-8以防止中文乱码
+        var html = "<html><head><meta charset='utf-8' /></head><body>" + document.getElementsByTagName("table")[0].outerHTML + "</body></html>";
+        // 实例化一个Blob对象，其构造函数的第一个参数是包含文件内容的数组，第二个参数是包含文件类型属性的对象
+        var blob = new Blob([html], { type: "application/vnd.ms-excel" });
+        var a = document.getElementById("hello");
+        // 利用URL.createObjectURL()方法为a元素生成blob URL
+        a.href = URL.createObjectURL(blob);
+        // 设置文件名
+        a.download = "学生成绩表.xls";
+    </script>
+</body>
+
+</html>
