@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @Service("GetIntoService")
-public class GetIntoImpl implements GetIntoService {
+public class GetIntoServiceImpl implements GetIntoService {
 
     @Resource
     private GetIntoMapper getIntoMapper;

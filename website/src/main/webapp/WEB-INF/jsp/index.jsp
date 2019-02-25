@@ -1,4 +1,5 @@
-
+<%@ page import="java.util.List" %>
+<%@ page import="com.company.website.showClasses.showLessons" %>
 <!DOCTYPE HTML>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -294,7 +295,7 @@ $(function() {
 						<div class="col-md-4 baner-bottom">
 							<figure class="effect-bubba">
 								<a href="web/images/g5.jpg" rel="title" class="b-link-stripe b-animate-go  thickbox">
-									<img src="web/images/g5.jpg" alt=""/ class="img-responsive" >
+									<img src="web/images/g5.jpg" alt="/ class="img-responsive" >
 									<figcaption>
 											<h4 class="sec">Fitness Club</h4>
 											<p>欢迎您的加入</p>		
@@ -344,37 +345,17 @@ $(function() {
 							 <th>授课教练</th>
 						 </tr> 
 					 </thead> 
-					 <tbody> 
-						 <tr> 
-							 <td>2018年11月28日</td> 
-							 <td>14：00--16：00</td> 
-							 <td>动感单车</td>
-							 <td>戴一</td>
-						 </tr> 
-						 <tr> 
-							 <td>2018年11月28日</td> 
-							 <td>16：00--18：00</td> 
-							 <td>拳击</td>
-							 <td>戴二</td>
-						  </tr> 
-						  <tr> 
-							<td>2018年11月28日</td> 
-							 <td>18：00--20：00</td> 
-							 <td>卷腹</td>
-							 <td>戴三</td>
-						 </tr> 
-						 <tr> 
-							<td>2018年11月29日</td> 
-							 <td>14：00--16：00</td> 
-							 <td>哑铃</td>
-							 <td>戴四</td>
-						  </tr> 
-						  <tr> 
-							<td>2018年11月29日</td> 
-							 <td>16：00--18：00</td> 
-							 <td>专项课</td>
-							 <td>戴五</td>
-						 </tr>  
+					 <tbody>
+						 <% List<showLessons> resultlessons = (List<showLessons>)request.getAttribute("resultlessons"); %>
+						 <%for(int i=0;i<resultlessons.size();i++) {%>
+						 <tr>
+							 <td>${resultlessons.get(i).getDay()}</td>
+							 <td>${resultlessons.get(i).getTime()}</td>
+							 <td>${resultlessons.get(i).getLessonName()}</td>
+							 <td>${resultlessons.get(i).getTeacherName()}</td>
+						 </tr>
+						<% } %>
+
 					 </tbody> 
 				 </table>
 				 <script>
