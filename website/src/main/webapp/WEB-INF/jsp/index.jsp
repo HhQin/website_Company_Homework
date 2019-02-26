@@ -349,10 +349,10 @@ $(function() {
 						 <% List<showLessons> resultlessons = (List<showLessons>)request.getAttribute("resultlessons"); %>
 						 <%for(int i=0;i<resultlessons.size();i++) {%>
 						 <tr>
-							 <td>${resultlessons.get(i).getDay()}</td>
-							 <td>${resultlessons.get(i).getTime()}</td>
-							 <td>${resultlessons.get(i).getLessonName()}</td>
-							 <td>${resultlessons.get(i).getTeacherName()}</td>
+							 <td>${resultlessons.get(i).getDay() }</td>
+							 <td>${resultlessons.get(i).getTime() }</td>
+							 <td>${resultlessons.get(i).getLessonName() }</td>
+							 <td>${resultlessons.get(i).getTeacherName() }</td>
 						 </tr>
 						<% } %>
 

@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html; charset=UTF-8"  %>
 <head>
 <title>主页——Fitness Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -90,7 +93,7 @@
 				</ul>
 			</li>
 		</ul>
-		<ul class="logout"><li><a href="login.html"><i class="icon-off nav-icon"></i><span class="nav-text">注销</span></a></li></ul>
+		<ul class="logout"><li><a href="login.jsp"><i class="icon-off nav-icon"></i><span class="nav-text">注销</span></a></li></ul>
 	</nav>
 	<section class="wrapper scrollable">
 		<nav class="user-menu">
@@ -244,75 +247,7 @@
 			 </div>
 		</div>
 				
-		<div class="col-md-4 charts-right" style="width:50%">
-			<!-- area-chart -->
-			<div class="area-grids">
-				<div class="area-grids-heading">
-					<h3>在场私教</h3>
-				</div>
-				<div id="graph4"></div>
-				<div >
-					<table id="table_id_example2" class="display">
-									<thead>
-										 <tr>
-												 <th>工号</th>
-												 <th>姓名</th> 
-												 <th>性别</th> 
-												 <th>年龄</th>
-										 </tr> 
-								 </thead> 
-								 <tbody> 
-										 <tr> 
-												 <td>NO.10001</td> 
-												 <td>张三</td> 
-												 <td>男</td>
-												 <td>26</td>
-										 </tr> 
-										 <tr> 
-											<td>NO.10001</td> 
-											<td>张三</td> 
-											<td>男</td>
-											<td>26</td>
-											</tr> 
-										<tr> 
-												<td>NO.10001</td> 
-												<td>张三</td> 
-												<td>男</td>
-												<td>26</td>
-										 </tr> 
-										 <tr> 
-											<td>NO.10001</td> 
-											<td>张三</td> 
-											<td>男</td>
-											<td>26</td>
-											</tr> 
-											<tr> 
-												<td>NO.10001</td> 
-												 <td>张三</td> 
-												 <td>男</td>
-												 <td>26</td>
-										 </tr>  
-								 </tbody> 
-						 </table>
-						 <script>
-										 $(document).ready(function () {
-												 $('#table_id_example2').DataTable();
-										 });
-								 </script>
-		 </div>
 
-			</div>
-			<!-- //area-chart -->
-		</div>
-		<div class="col-md-8 chart-left" style="width:50%">
-			<!-- updating-data -->
-			<div class="agile-Updating-grids">
-				<div class="area-grids-heading">
-					<h3>Updating data</h3>
-				</div>
-				<div id="graph1"></div>
-				
-			</div>
 			<!-- //updating-data -->
 		</div>
 

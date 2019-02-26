@@ -22,7 +22,11 @@ public class EmployeesServiceTest {
         System.out.println(result);
     }
 
-
+    @Test
+    public void testQueryPassword(){
+        String result=employeesService.queryPassword("123456");
+        System.out.println("result:"+result);
+    }
 
 }
 

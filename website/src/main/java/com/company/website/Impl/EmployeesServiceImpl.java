@@ -17,4 +17,14 @@ public class EmployeesServiceImpl implements EmployeesService {
     public String queryNameByNumber(String UserNum){
         return employeesMapper.queryNameByNumber(UserNum);
     }
+
+    @Override
+    public String queryPassword(String LogName){
+        return employeesMapper.queryPassword(LogName);
+    }
+
+    @Override
+    public Integer queryBusyTeacherNumber(){
+        return employeesMapper.queryBusyTeacherNumber();
+    }
 }

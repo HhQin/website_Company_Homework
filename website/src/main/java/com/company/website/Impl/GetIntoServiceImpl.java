@@ -18,4 +18,10 @@ public class GetIntoServiceImpl implements GetIntoService {
     public List<GetInto> queryAllGetintos(){
         return getIntoMapper.queryAllGetintos();
     }
+
+    @Override
+    public Integer queryCustomerNumberByTime(Long BeginTime,Long EndTime){
+        return getIntoMapper.queryCustomerNumberByTime(BeginTime,EndTime);
+    }
+
 }
