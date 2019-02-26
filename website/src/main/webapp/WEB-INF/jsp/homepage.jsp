@@ -1,3 +1,5 @@
+<%@ page import="com.company.website.showClasses.showLessons" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -134,6 +136,10 @@
 			<div class="clearfix"> </div>
 		</section>
 
+		<% Integer todayCustomerNumber = (Integer) request.getAttribute("todayCustomerNumber"); %>
+		<% Integer teacherNumber = (Integer) request.getAttribute("teacherNumber"); %>
+		<% Integer brokenItemNumber = (Integer) request.getAttribute("brokenItemNumber"); %>
+		<% Integer allCustomerNumber = (Integer) request.getAttribute("allCustomerNumber"); %>
 		<div class="social grid">
 			<div class="grid-info">
 				<div class="col-md-3 top-comment-grid">
@@ -142,7 +148,7 @@
 							<i class="fa fa-facebook"></i>
 						</div>
 						<div class="comments-info likes-info">
-							<h3>95</h3>
+							<h3>${todayCustomerNumber }</h3>
 							<a href="#">今日入场客人数</a>
 						</div>
 						<div class="clearfix"> </div>
@@ -154,7 +160,7 @@
 							<i class="fa fa-comments"></i>
 						</div>
 						<div class="comments-info">
-							<h3>12</h3>
+							<h3>${teacherNumber }</h3>
 							<a href="#">在场私教数</a>
 						</div>
 						<div class="clearfix"> </div>
@@ -166,7 +172,7 @@
 							<i class="fa fa-twitter"></i>
 						</div>
 						<div class="comments-info tweets-info">
-							<h3>2</h3>
+							<h3>${brokenItemNumber }</h3>
 							<a href="#">故障器械数</a>
 						</div>
 						<div class="clearfix"> </div>
@@ -178,7 +184,7 @@
 							<i class="fa fa-eye"></i>
 						</div>
 						<div class="comments-info views-info">
-							<h3>557</h3>
+							<h3>${allCustomerNumber }</h3>
 							<a href="#">总会员数</a>
 						</div>
 						<div class="clearfix"> </div>
@@ -206,37 +212,16 @@
 													 <th>授课教练</th>
 											 </tr> 
 									 </thead> 
-									 <tbody> 
-											 <tr> 
-													 <td>2018年11月28日</td> 
-													 <td>14：00--16：00</td> 
-													 <td>动感单车</td>
-													 <td>戴一</td>
-											 </tr> 
-											 <tr> 
-													 <td>2018年11月28日</td> 
-													 <td>16：00--18：00</td> 
-													 <td>拳击</td>
-													 <td>戴二</td>
-												</tr> 
-												<tr> 
-													<td>2018年11月28日</td> 
-													 <td>18：00--20：00</td> 
-													 <td>卷腹</td>
-													 <td>戴三</td>
-											 </tr> 
-											 <tr> 
-													<td>2018年11月29日</td> 
-													 <td>14：00--16：00</td> 
-													 <td>哑铃</td>
-													 <td>戴四</td>
-												</tr> 
-												<tr> 
-													<td>2018年11月29日</td> 
-													 <td>16：00--18：00</td> 
-													 <td>专项课</td>
-													 <td>戴五</td>
-											 </tr>  
+									 <tbody>
+									 <% List<showLessons> resultlessons = (List<showLessons>)request.getAttribute("resultlessons"); %>
+									 <%for(int i=0;i<resultlessons.size();i++) {%>
+									 <tr>
+										 <td>${resultlessons.get(i).getDay() }</td>
+										 <td>${resultlessons.get(i).getTime() }</td>
+										 <td>${resultlessons.get(i).getLessonName() }</td>
+										 <td>${resultlessons.get(i).getTeacherName() }</td>
+									 </tr>
+									 <% } %>
 									 </tbody> 
 							 </table>
 							 <script>

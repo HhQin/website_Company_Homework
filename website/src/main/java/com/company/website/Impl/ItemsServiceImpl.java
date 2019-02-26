@@ -1,5 +1,6 @@
 package com.company.website.Impl;
 
+import com.company.website.mapper.ItemsMapper;
 import com.company.website.service.ItemsService;
 import org.springframework.stereotype.Service;
 
@@ -9,10 +10,10 @@ import javax.annotation.Resource;
 public class ItemsServiceImpl implements ItemsService {
 
     @Resource
-    ItemsService itemsService;
+    ItemsMapper itemsMapper;
 
     @Override
     public Integer queryBrokenItemNumber(){
-        return itemsService.queryBrokenItemNumber();
+        return itemsMapper.queryBrokenItemNumber();
     }
 }

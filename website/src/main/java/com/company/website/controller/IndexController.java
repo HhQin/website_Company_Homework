@@ -2,10 +2,7 @@ package com.company.website.controller;
 
 import com.company.website.entity.employees;
 import com.company.website.entity.lessons;
-import com.company.website.service.EmployeesService;
-import com.company.website.service.GetIntoService;
-import com.company.website.service.ItemsService;
-import com.company.website.service.LessonsService;
+import com.company.website.service.*;
 import com.company.website.showClasses.showLessons;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,6 +33,9 @@ public class IndexController {
 
     @Resource
     ItemsService itemsService;
+
+    @Resource
+    CustomerService customerService;
 
     @RequestMapping("/index")
     public String index(Model m) {
@@ -78,11 +78,9 @@ public class IndexController {
             Long tempBeginTime = System.currentTimeMillis()-(System.currentTimeMillis()%86400000);
             Long tempEndTime = tempBeginTime+86400000;
             m.addAttribute("todayCustomerNumber",getIntoService.queryCustomerNumberByTime(tempBeginTime,tempEndTime));
-
             m.addAttribute("teacherNumber",employeesService.queryBusyTeacherNumber());
-
             m.addAttribute("brokenItemNumber",itemsService.queryBrokenItemNumber());
-
+            m.addAttribute("allCustomerNumber",customerService.queryAllCustomerNumber());
             return "homepage";
         }else {
             return "login";
