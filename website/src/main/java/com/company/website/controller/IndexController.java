@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -58,10 +59,19 @@ public class IndexController {
         return "login";
     }
 
-    @RequestMapping(value = "/homepage",method = RequestMethod.POST)
-    public String homepage(Model m, employees employee){
+    @RequestMapping(value = "/logincheck",method = RequestMethod.POST)
+    public String logincheck(employees employee, HttpServletResponse response) throws Exception{
         if(employeesService.queryPassword(employee.getLogName())!=null
                 && employeesService.queryPassword(employee.getLogName()).equals(employee.getPassword())){
+            response.sendRedirect("/homepage");
+            return "login";
+        }else {
+            return "login";
+        }
+    }
+
+    @RequestMapping(value = "/homepage")
+    public String homepage(Model m){
 
             List<showLessons> resultlessons=new ArrayList<>();
             for(lessons lesson:lessonsService.queryAllLessons()){
@@ -82,8 +92,17 @@ public class IndexController {
             m.addAttribute("brokenItemNumber",itemsService.queryBrokenItemNumber());
             m.addAttribute("allCustomerNumber",customerService.queryAllCustomerNumber());
             return "homepage";
-        }else {
-            return "login";
-        }
+
+    }
+
+    @RequestMapping(value = "/customerQueryResult",method = RequestMethod.GET)
+    public String customerQueryResult(Model m,String VIPNumber){
+        System.out.println("\n\n\n\n\n\n\n"+VIPNumber+"\n\n\n\n\n\n");
+        return "query_result";
+    }
+
+    @RequestMapping("operate_success")
+    public String operateSuccess(){
+        return "operate_success";
     }
 }

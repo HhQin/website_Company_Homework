@@ -67,10 +67,7 @@ $(function() {
 			<div class="inner-top">
 		       <div class="col-md-3 top_right">
 					<ul class="f-icons">
-						<li><a href="#" class="facebook"> </a></li>
-						<li><a href="#" title="hell0" class="p"> </a></li>
-						<li><a href="#" class="twitter"> </a></li>
-						<li><a href="#" class="isto"> </a></li>
+						<li><a href="/login" title="hell0" class="p"> </a></li>
 					</ul>
 
 			    </div>
@@ -78,9 +75,9 @@ $(function() {
 					<a href="index.html"><h1>Fitness <span>Club</span></h1></a>
 				</div>
 				    <div class="col-md-3 search">
-							<form>
+							<form action="/customerQueryResult">
 								<input type="submit" value="">
-								<input type="text" placeholder="输入会员号，查询运动信息">
+								<input type="text" placeholder="输入会员号，查询运动信息" name="VIPNumber">
 							</form>
 						</div>
 			   <div class="clearfix"></div>

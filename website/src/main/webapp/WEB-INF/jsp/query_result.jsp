@@ -1,5 +1,7 @@
-
 <!DOCTYPE HTML>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html; charset=UTF-8"  %>
 <html>
 <head>
 <title>查询结果--Fitness Club</title>

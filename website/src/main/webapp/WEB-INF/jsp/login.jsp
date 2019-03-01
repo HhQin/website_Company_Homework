@@ -63,7 +63,7 @@
                         		</div>
                             </div>
                             <div class="form-bottom">
-			                    <form role="form" action="/homepage" method="post" class="login-form">
+			                    <form role="form" action="/logincheck" method="post" class="login-form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-username">Username</label>
 			                        	<input type="text" name="LogName" placeholder="请输入用户名..." class="form-username form-control" id="form-username">
@@ -72,8 +72,9 @@
 			                        	<label class="sr-only" for="form-password">Password</label>
 			                        	<input type="password" name="Password" placeholder="请输入密码..." class="form-password form-control" id="form-password">
 			                        </div>
-			                        <button type="submit" class="btn">登  陆</button>
+			                        <button type="submit" class="btn" onclick="checkform()">登  陆</button>
 			                    </form>
+
 		                    </div>
                         </div>
                     </div>
