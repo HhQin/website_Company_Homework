@@ -1,4 +1,3 @@
-<%@ page import="com.company.website.showClasses.showLessons" %>
 <%@ page import="com.company.website.entity.items" %>
 <%@ page import="java.util.List" %>
 <!DOCTYPE html>
@@ -6,7 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html; charset=UTF-8"  %>
 <head>
-<title>器材信息查询——Fitness Club</title>
+<title>健身设备信息修改——Fitness Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -137,49 +136,63 @@
 			<div class="clearfix"> </div>
 		</section>
 
-		<div class="agile-grids" >
-			<div class="col-md-4 charts-right" style="width:100%">
-				<!-- area-chart -->
-				<div class="area-grids">
-					<div class="area-grids-heading">
-                        <h3>器材信息查询<i><small><a id="download">(点击导出)</a></small></i></h3>
+		<div class="grids">
+            
+                
+            <div class="panel panel-widget forms-panel">
+                    <div class="progressbar-heading general-heading">
+                        <h4>健身设备信息修改  :</h4>
                     </div>
+                    <div class="forms">
+                            <h3 class="title1"></h3>
+                            <div class="form-three widget-shadow">
+								<% List<items> item = (List<items>)request.getAttribute("item"); %>
+                                <form class="form-horizontal" action="/itemManagement-itemModifyCheck" method="post">
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label" >设备编号</label>
+										<div class="col-sm-8">
+											<input value=<% out.print(item.get(0).getItemNumber()); %> type="text" class="form-control" id="itemNumber" name="itemNumber" readonly>
+										</div>
+									</div>
+                                    <div class="form-group">
+                                            <label for="focusedinput" class="col-sm-2 control-label" >设备名</label>
+                                            <div class="col-sm-8">
+                                                <input value=<% out.print(item.get(0).getItemName()); %> type="text" class="form-control" id="itemName" name="itemName">
+                                            </div>
+                                        </div>
+                                    <div class="form-group">
+                                        <label for="focusedinput" class="col-sm-2 control-label">设备状态</label>
+										<div class="col-sm-8"><select name="selector1" id="selector1" class="form-control1">
+											<option <% if(item.get(0).getItemStatus()=="正常") out.print("selected"); %> >正常</option>
+											<option <% if(item.get(0).getItemStatus()=="故障") out.print("selected"); %> >故障</option>
+											<option <% if(item.get(0).getItemStatus()=="其他") out.print("selected"); %> >其他</option>
+										</select></div>
+                                    </div>
 
-					<div id="graph4"></div>
-					<div >
-						<table id="table_id_example1" class="display">
-										<thead>
-											 <tr>
-													 <th>设备编号</th>
-													 <th>设备名</th>
-													 <th>设备状态</th>
-											 </tr> 
-									 </thead> 
-									 <tbody>
-									 <% List<items> resultitems = (List<items>)request.getAttribute("resultitems"); %>
-									 <%for(int i=0;i<resultitems.size();i++) {%>
-									 <tr>
-										 <td>${resultitems.get(i).getItemNumber() }</td>
-										 <td>${resultitems.get(i).getItemName() }</td>
-										 <td>${resultitems.get(i).getItemStatus() }</td>
-									 </tr>
-									 <% } %>
-									 </tbody> 
-							 </table>
-							 <script>
-											 $(document).ready(function () {
-													 $('#table_id_example1').DataTable();
-											 });
-									 </script>
-			 </div>
-        </div>
-
-				</div>
-				<!-- //area-chart -->
-			</div>
+                                    
+                                    <div style="text-align: center;">
+                                        <button type="submit" class="btn btn-default w3ls-button" onclick="checkform()">点击修改设备信息</button>
+                                    </div>
+                                </form>
+								<script type="text/javascript">
+                                    function checkform(){
+                                        if(document.getElementById('name').value.length==0){
+                                            alert('输入不能为空！');
+                                            document.getElementById('name').focus();
+                                            return false;
+                                        }
+                                    }
+								</script>
+                            </div>
+                    </div>
+                </div>
 			
 			<div class="clearfix"> </div>
 		</div>
+		
+		
+
+
 
 		</div>
 		<!-- footer -->
@@ -190,16 +203,6 @@
 	</section>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/proton.js"></script>
-	<script>
-        // 使用outerHTML属性获取整个table元素的HTML代码（包括<table>标签），然后包装成一个完整的HTML文档，设置charset为urf-8以防止中文乱码
-        var html = "<html><head><meta charset='utf-8' /></head><body>" + document.getElementsByTagName("table")[0].outerHTML + "</body></html>";
-        // 实例化一个Blob对象，其构造函数的第一个参数是包含文件内容的数组，第二个参数是包含文件类型属性的对象
-        var blob = new Blob([html], { type: "application/vnd.ms-excel" });
-        var a = document.getElementById("download");
-        // 利用URL.createObjectURL()方法为a元素生成blob URL
-        a.href = URL.createObjectURL(blob);
-        // 设置文件名
-        a.download = "器材信息表.xls";
-    </script>
+	
 </body>
 </html>

@@ -1,11 +1,11 @@
-<%@ page import="com.company.website.showClasses.showLessons" %>
+<%@ page import="com.company.website.entity.items" %>
 <%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html; charset=UTF-8"  %>
 <head>
-<title>主页——Fitness Club</title>
+<title>器材信息管理——Fitness Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -136,90 +136,39 @@
 			<div class="clearfix"> </div>
 		</section>
 
-		<% Integer todayCustomerNumber = (Integer) request.getAttribute("todayCustomerNumber"); %>
-		<% Integer teacherNumber = (Integer) request.getAttribute("teacherNumber"); %>
-		<% Integer brokenItemNumber = (Integer) request.getAttribute("brokenItemNumber"); %>
-		<% Integer allCustomerNumber = (Integer) request.getAttribute("allCustomerNumber"); %>
-		<div class="social grid">
-			<div class="grid-info">
-				<div class="col-md-3 top-comment-grid">
-					<div class="comments likes">
-						<div class="comments-icon">
-							<i class="fa fa-facebook"></i>
-						</div>
-						<div class="comments-info likes-info">
-							<h3>${todayCustomerNumber }</h3>
-							<a href="#">今日入场客人数</a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<div class="col-md-3 top-comment-grid">
-					<div class="comments">
-						<div class="comments-icon">
-							<i class="fa fa-comments"></i>
-						</div>
-						<div class="comments-info">
-							<h3>${teacherNumber }</h3>
-							<a href="#">在场私教数</a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<div class="col-md-3 top-comment-grid">
-					<div class="comments tweets">
-						<div class="comments-icon">
-							<i class="fa fa-twitter"></i>
-						</div>
-						<div class="comments-info tweets-info">
-							<h3>${brokenItemNumber }</h3>
-							<a href="#">故障器械数</a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<div class="col-md-3 top-comment-grid">
-					<div class="comments views">
-						<div class="comments-icon">
-							<i class="fa fa-eye"></i>
-						</div>
-						<div class="comments-info views-info">
-							<h3>${allCustomerNumber }</h3>
-							<a href="#">总会员数</a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-	</div>
-
 		<div class="agile-grids" >
 			<div class="col-md-4 charts-right" style="width:100%">
 				<!-- area-chart -->
 				<div class="area-grids">
 					<div class="area-grids-heading">
-						<h3>操课安排</h3>
-					</div>
+                        <h3>器材信息管理<i><small><a id="download">(点击导出)</a></small></i></h3>
+                    </div>
+
 					<div id="graph4"></div>
 					<div >
 						<table id="table_id_example1" class="display">
 										<thead>
 											 <tr>
-													 <th>日期</th>
-													 <th>时间</th> 
-													 <th>课程</th> 
-													 <th>授课教练</th>
+													 <th>设备编号</th>
+													 <th>设备名</th>
+													 <th>设备状态</th>
+												     <th>修 改</th>
+												     <th>删 除</th>
 											 </tr> 
 									 </thead> 
 									 <tbody>
-									 <% List<showLessons> resultlessons = (List<showLessons>)request.getAttribute("resultlessons"); %>
-									 <%for(int i=0;i<resultlessons.size();i++) {%>
+									 <% List<items> resultitems = (List<items>)request.getAttribute("resultitems"); %>
+									 <% for(int i=0;i<resultitems.size();i++) {%>
 									 <tr>
-										 <td><% out.print(resultlessons.get(i).getDay()); %></td>
-										 <td><% out.print(resultlessons.get(i).getTime()); %></td>
-										 <td><% out.print(resultlessons.get(i).getLessonName()); %></td>
-										 <td><% out.print(resultlessons.get(i).getTeacherName()); %></td>
+										 <td><% out.print(resultitems.get(i).getItemNumber()); %></td>
+										 <td><% out.print(resultitems.get(i).getItemName()); %></td>
+										 <td><% out.print(resultitems.get(i).getItemStatus()); %></td>
+										 <td>
+											 <button type="button" onclick="window.location.href='/itemManagement-itemModify-<% out.print(resultitems.get(i).getItemNumber()); %>'" class="btn bg-info light text-white fw600 text-center btn-sm btn-primary btn-block">点击修改</button>
+										 </td>
+										 <td>
+											 <button type="button" onclick="window.location.href='/itemManagement-itemDeleteCheck-<% out.print(resultitems.get(i).getItemNumber()); %>'" class="btn bg-danger dark text-white fw600 text-center btn-sm btn-primary btn-block">点击删除</button>
+										 </td>
 									 </tr>
 									 <% } %>
 									 </tbody> 
@@ -230,11 +179,7 @@
 											 });
 									 </script>
 			 </div>
-		</div>
-				
-
-			<!-- //updating-data -->
-		</div>
+        </div>
 
 				</div>
 				<!-- //area-chart -->
@@ -242,20 +187,26 @@
 			
 			<div class="clearfix"> </div>
 		</div>
-		
-		
-
-
 
 		</div>
 		<!-- footer -->
 		<div class="footer">
-			<p>Copyright &copy; 2018.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+			<p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
 		</div>
 		<!-- //footer -->
 	</section>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/proton.js"></script>
-	
+	<script>
+        // 使用outerHTML属性获取整个table元素的HTML代码（包括<table>标签），然后包装成一个完整的HTML文档，设置charset为urf-8以防止中文乱码
+        var html = "<html><head><meta charset='utf-8' /></head><body>" + document.getElementsByTagName("table")[0].outerHTML + "</body></html>";
+        // 实例化一个Blob对象，其构造函数的第一个参数是包含文件内容的数组，第二个参数是包含文件类型属性的对象
+        var blob = new Blob([html], { type: "application/vnd.ms-excel" });
+        var a = document.getElementById("download");
+        // 利用URL.createObjectURL()方法为a元素生成blob URL
+        a.href = URL.createObjectURL(blob);
+        // 设置文件名
+        a.download = "器材信息表.xls";
+    </script>
 </body>
 </html>

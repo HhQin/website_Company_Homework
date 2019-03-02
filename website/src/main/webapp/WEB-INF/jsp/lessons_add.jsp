@@ -1,11 +1,9 @@
-<%@ page import="com.company.website.showClasses.showLessons" %>
-<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html; charset=UTF-8"  %>
 <head>
-<title>主页——Fitness Club</title>
+<title>新增健身设备——Fitness Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -136,109 +134,49 @@
 			<div class="clearfix"> </div>
 		</section>
 
-		<% Integer todayCustomerNumber = (Integer) request.getAttribute("todayCustomerNumber"); %>
-		<% Integer teacherNumber = (Integer) request.getAttribute("teacherNumber"); %>
-		<% Integer brokenItemNumber = (Integer) request.getAttribute("brokenItemNumber"); %>
-		<% Integer allCustomerNumber = (Integer) request.getAttribute("allCustomerNumber"); %>
-		<div class="social grid">
-			<div class="grid-info">
-				<div class="col-md-3 top-comment-grid">
-					<div class="comments likes">
-						<div class="comments-icon">
-							<i class="fa fa-facebook"></i>
-						</div>
-						<div class="comments-info likes-info">
-							<h3>${todayCustomerNumber }</h3>
-							<a href="#">今日入场客人数</a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<div class="col-md-3 top-comment-grid">
-					<div class="comments">
-						<div class="comments-icon">
-							<i class="fa fa-comments"></i>
-						</div>
-						<div class="comments-info">
-							<h3>${teacherNumber }</h3>
-							<a href="#">在场私教数</a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<div class="col-md-3 top-comment-grid">
-					<div class="comments tweets">
-						<div class="comments-icon">
-							<i class="fa fa-twitter"></i>
-						</div>
-						<div class="comments-info tweets-info">
-							<h3>${brokenItemNumber }</h3>
-							<a href="#">故障器械数</a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<div class="col-md-3 top-comment-grid">
-					<div class="comments views">
-						<div class="comments-icon">
-							<i class="fa fa-eye"></i>
-						</div>
-						<div class="comments-info views-info">
-							<h3>${allCustomerNumber }</h3>
-							<a href="#">总会员数</a>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-				</div>
-				<div class="clearfix"> </div>
-			</div>
-	</div>
+		<div class="grids">
+            
+                
+            <div class="panel panel-widget forms-panel">
+                    <div class="progressbar-heading general-heading">
+                        <h4>新增健身设备  :</h4>
+                    </div>
+                    <div class="forms">
+                            <h3 class="title1"></h3>
+                            <div class="form-three widget-shadow">
+                                <form class="form-horizontal" action="/itemManagement-itemAddCheck" method="post">
+                                    <div class="form-group">
+                                            <label for="focusedinput" class="col-sm-2 control-label" >设备名</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" id="name" name="name">
+                                            </div>
+                                        </div>
+                                    <div class="form-group">
+                                        <label for="focusedinput" class="col-sm-2 control-label">设备状态</label>
+										<div class="col-sm-8"><select name="selector1" id="selector1" class="form-control1">
+											<option>正常</option>
+											<option>故障</option>
+											<option>其他</option>
+										</select></div>
+                                    </div>
 
-		<div class="agile-grids" >
-			<div class="col-md-4 charts-right" style="width:100%">
-				<!-- area-chart -->
-				<div class="area-grids">
-					<div class="area-grids-heading">
-						<h3>操课安排</h3>
-					</div>
-					<div id="graph4"></div>
-					<div >
-						<table id="table_id_example1" class="display">
-										<thead>
-											 <tr>
-													 <th>日期</th>
-													 <th>时间</th> 
-													 <th>课程</th> 
-													 <th>授课教练</th>
-											 </tr> 
-									 </thead> 
-									 <tbody>
-									 <% List<showLessons> resultlessons = (List<showLessons>)request.getAttribute("resultlessons"); %>
-									 <%for(int i=0;i<resultlessons.size();i++) {%>
-									 <tr>
-										 <td><% out.print(resultlessons.get(i).getDay()); %></td>
-										 <td><% out.print(resultlessons.get(i).getTime()); %></td>
-										 <td><% out.print(resultlessons.get(i).getLessonName()); %></td>
-										 <td><% out.print(resultlessons.get(i).getTeacherName()); %></td>
-									 </tr>
-									 <% } %>
-									 </tbody> 
-							 </table>
-							 <script>
-											 $(document).ready(function () {
-													 $('#table_id_example1').DataTable();
-											 });
-									 </script>
-			 </div>
-		</div>
-				
-
-			<!-- //updating-data -->
-		</div>
-
-				</div>
-				<!-- //area-chart -->
-			</div>
+                                    
+                                    <div style="text-align: center;">
+                                        <button type="submit" class="btn btn-default w3ls-button" onclick="checkform()">点击新增设备</button>
+                                    </div>
+                                </form>
+								<script type="text/javascript">
+                                    function checkform(){
+                                        if(document.getElementById('name').value.length==0){
+                                            alert('输入不能为空！');
+                                            document.getElementById('name').focus();
+                                            return false;
+                                        }
+                                    }
+								</script>
+                            </div>
+                    </div>
+                </div>
 			
 			<div class="clearfix"> </div>
 		</div>
@@ -250,7 +188,7 @@
 		</div>
 		<!-- footer -->
 		<div class="footer">
-			<p>Copyright &copy; 2018.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
+			<p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
 		</div>
 		<!-- //footer -->
 	</section>

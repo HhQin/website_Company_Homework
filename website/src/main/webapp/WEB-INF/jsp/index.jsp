@@ -343,15 +343,15 @@ $(function() {
 						 </tr> 
 					 </thead> 
 					 <tbody>
-						 <% List<showLessons> resultlessons = (List<showLessons>)request.getAttribute("resultlessons"); %>
-						 <%for(int i=0;i<resultlessons.size();i++) {%>
-						 <tr>
-							 <td>${resultlessons.get(i).getDay() }</td>
-							 <td>${resultlessons.get(i).getTime() }</td>
-							 <td>${resultlessons.get(i).getLessonName() }</td>
-							 <td>${resultlessons.get(i).getTeacherName() }</td>
-						 </tr>
-						<% } %>
+					 <% List<showLessons> resultlessons = (List<showLessons>)request.getAttribute("resultlessons"); %>
+					 <%for(int i=0;i<resultlessons.size();i++) {%>
+					 <tr>
+						 <td><% out.print(resultlessons.get(i).getDay()); %></td>
+						 <td><% out.print(resultlessons.get(i).getTime()); %></td>
+						 <td><% out.print(resultlessons.get(i).getLessonName()); %></td>
+						 <td><% out.print(resultlessons.get(i).getTeacherName()); %></td>
+					 </tr>
+					 <% } %>
 
 					 </tbody> 
 				 </table>

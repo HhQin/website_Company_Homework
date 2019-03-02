@@ -28,4 +28,19 @@ public class ItemsServiceImpl implements ItemsService {
     public List<items> queryAllItems(){
         return itemsMapper.queryAllItems();
     }
+
+    @Override
+    public Boolean deleteItemByNumber(String ItemNumber){
+        return itemsMapper.deleteItemByNumber(ItemNumber);
+    }
+
+    @Override
+    public  List<items> queryItemByNumber(String ItemNumber){
+        return itemsMapper.queryItemByNumber(ItemNumber);
+    }
+
+    @Override
+    public Boolean updateItemByNumber(String ItemNumber,String ItemName,String ItemStatus){
+        return itemsMapper.updateItemByNumber(ItemNumber,ItemName,ItemStatus);
+    }
 }
