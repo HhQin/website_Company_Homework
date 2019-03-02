@@ -17,4 +17,25 @@ public class LessonsServiceImpl implements LessonsService {
     public List<lessons> queryAllLessons(){
         return lessonsMapper.queryAllLessons();
     }
+
+    @Override
+    public Boolean createNewLessons(String LessonNumber,String Day,String Time, String LessonName, String TeacherNum){
+        return lessonsMapper.createNewLessons(LessonNumber,Day,Time,LessonName,TeacherNum);
+    }
+
+    @Override
+    public Boolean deleteLessonByNumber(String LessonNumber){
+        return lessonsMapper.deleteLessonByNumber(LessonNumber);
+    }
+
+    @Override
+    public List<lessons> queryLessonByNumber(String LessonNumber){
+        return lessonsMapper.queryLessonByNumber(LessonNumber);
+    }
+
+    @Override
+    public Boolean updateLessonByNumber(String lessonNumber,String lessonName, String day,String time,String teacherNum){
+        return lessonsMapper.updateLessonByNumber(lessonNumber,lessonName,day,time,teacherNum);
+    }
+
 }

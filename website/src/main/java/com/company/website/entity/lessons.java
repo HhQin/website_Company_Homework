@@ -2,7 +2,7 @@ package com.company.website.entity;
 
 public class lessons {
     String LessonNumber;
-    Long Day;
+    String Day;
     String Time;
     String LessonName;
     String TeacherNum;
@@ -15,11 +15,11 @@ public class lessons {
         LessonNumber = lessonNumber;
     }
 
-    public Long getDay() {
+    public String getDay() {
         return Day;
     }
 
-    public void setDay(Long day) {
+    public void setDay(String day) {
         Day = day;
     }
 

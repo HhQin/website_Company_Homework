@@ -1,5 +1,6 @@
 package com.company.website.Impl;
 
+import com.company.website.entity.employees;
 import com.company.website.mapper.EmployeesMapper;
 import com.company.website.service.EmployeesService;
 import org.springframework.stereotype.Service;
@@ -26,5 +27,10 @@ public class EmployeesServiceImpl implements EmployeesService {
     @Override
     public Integer queryBusyTeacherNumber(){
         return employeesMapper.queryBusyTeacherNumber();
+    }
+
+    @Override
+    public List<employees> queryAllTeachers(){
+        return employeesMapper.queryAllTeachers();
     }
 }

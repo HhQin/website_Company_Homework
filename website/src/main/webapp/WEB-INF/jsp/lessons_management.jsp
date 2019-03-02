@@ -1,11 +1,13 @@
-<%@ page import="com.company.website.entity.employees" %>
+<%@ page import="com.company.website.entity.items" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.company.website.entity.lessons" %>
+<%@ page import="com.company.website.showClasses.showLessons" %>
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html; charset=UTF-8"  %>
 <head>
-<title>新增操课——Fitness Club</title>
+<title>操课信息管理——Fitness Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -136,72 +138,59 @@
 			<div class="clearfix"> </div>
 		</section>
 
-		<div class="grids">
-            
-                
-            <div class="panel panel-widget forms-panel">
-                    <div class="progressbar-heading general-heading">
-                        <h4>新增操课  :</h4>
+		<div class="agile-grids" >
+			<div class="col-md-4 charts-right" style="width:100%">
+				<!-- area-chart -->
+				<div class="area-grids">
+					<div class="area-grids-heading">
+                        <h3>操课信息管理<i><small><a id="download">(点击导出)</a></small></i></h3>
                     </div>
-                    <div class="forms">
-                            <h3 class="title1"></h3>
-                            <div class="form-three widget-shadow">
-                                <form class="form-horizontal" action="/lessonManagement-lessonAddCheck" method="post">
-                                    <div class="form-group">
-										<label for="focusedinput" class="col-sm-2 control-label" >课程名</label>
-										<div class="col-sm-8">
-											<input type="text" class="form-control" id="LessonName" name="LessonName">
-										</div>
-									</div>
-									<div class="form-group">
-										<label for="focusedinput" class="col-sm-2 control-label" >课程日期</label>
-										<div class="col-sm-8">
-											<input type="date" class="form-control" id="LessonDay" name="LessonDay">
-										</div>
-									</div>
-                                    <div class="form-group">
-                                        <label for="focusedinput" class="col-sm-2 control-label">课程时间</label>
-										<div class="col-sm-8"><select name="LessonTime" id="LessonTime" class="form-control1">
-											<option value="9:30--11:30">9:30--11:30</option>
-											<option value="14:00--16:00">14:00--16:00</option>
-											<option value="16:00--18:00">16:00--18:00</option>
-											<option value="19:00--21:00">19:00--21:00</option>
-										</select></div>
-                                    </div>
-									<div class="form-group">
-										<label for="focusedinput" class="col-sm-2 control-label">授课老师</label>
-										<div class="col-sm-8"><select name="TeacherNum" id="TeacherNum" class="form-control1">
-											<% List<employees> teachers = (List<employees>)request.getAttribute("teachers"); %>
-											<% for(int i=0;i<teachers.size();i++) {%>
-											<option value="<% out.print(teachers.get(i).getUserNum()); %>"><% out.print(teachers.get(i).getRealName()); %></option>
-											<% } %>
-										</select></div>
-									</div>
 
-                                    
-                                    <div style="text-align: center;">
-                                        <button type="submit" class="btn btn-default w3ls-button" onclick="checkform()">点击新增操课</button>
-                                    </div>
-                                </form>
-								<script type="text/javascript">
-                                    function checkform(){
-                                        if(document.getElementById('name').value.length==0){
-                                            alert('输入不能为空！');
-                                            document.getElementById('name').focus();
-                                            return false;
-                                        }
-                                    }
-								</script>
-                            </div>
-                    </div>
-                </div>
+					<div id="graph4"></div>
+					<div >
+						<table id="table_id_example1" class="display">
+										<thead>
+											 <tr>
+													 <th>课程名</th>
+													 <th>课程日期</th>
+													 <th>课程时间</th>
+												     <th>授课老师</th>
+												     <th>修 改</th>
+												     <th>删 除</th>
+											 </tr> 
+									 </thead> 
+									 <tbody>
+									 <% List<showLessons> resultlessons = (List<showLessons>)request.getAttribute("resultlessons"); %>
+									 <% for(int i=0;i<resultlessons.size();i++) {%>
+									 <tr>
+										 <td><% out.print(resultlessons.get(i).getLessonName()); %></td>
+										 <td><% out.print(resultlessons.get(i).getDay()); %></td>
+										 <td><% out.print(resultlessons.get(i).getTime()); %></td>
+										 <td><% out.print(resultlessons.get(i).getTeacherName()); %></td>
+										 <td>
+											 <button type="button" onclick="window.location.href='/lessonsManagement-lessonModify-<% out.print(resultlessons.get(i).getLessonNum()); %>'" class="btn bg-info light text-white fw600 text-center btn-sm btn-primary btn-block">点击修改</button>
+										 </td>
+										 <td>
+											 <button type="button" onclick="window.location.href='/lessonsManagement-lessonDeleteCheck-<% out.print(resultlessons.get(i).getLessonNum()); %>'" class="btn bg-danger dark text-white fw600 text-center btn-sm btn-primary btn-block">点击删除</button>
+										 </td>
+									 </tr>
+									 <% } %>
+									 </tbody> 
+							 </table>
+							 <script>
+											 $(document).ready(function () {
+													 $('#table_id_example1').DataTable();
+											 });
+									 </script>
+			 </div>
+        </div>
+
+				</div>
+				<!-- //area-chart -->
+			</div>
 			
 			<div class="clearfix"> </div>
 		</div>
-		
-		
-
-
 
 		</div>
 		<!-- footer -->
@@ -212,6 +201,16 @@
 	</section>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/proton.js"></script>
-	
+	<script>
+        // 使用outerHTML属性获取整个table元素的HTML代码（包括<table>标签），然后包装成一个完整的HTML文档，设置charset为urf-8以防止中文乱码
+        var html = "<html><head><meta charset='utf-8' /></head><body>" + document.getElementsByTagName("table")[0].outerHTML + "</body></html>";
+        // 实例化一个Blob对象，其构造函数的第一个参数是包含文件内容的数组，第二个参数是包含文件类型属性的对象
+        var blob = new Blob([html], { type: "application/vnd.ms-excel" });
+        var a = document.getElementById("download");
+        // 利用URL.createObjectURL()方法为a元素生成blob URL
+        a.href = URL.createObjectURL(blob);
+        // 设置文件名
+        a.download = "操课信息表.xls";
+    </script>
 </body>
 </html>

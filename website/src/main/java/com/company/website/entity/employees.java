@@ -9,6 +9,24 @@ public class employees {
     Integer Age;
     String Job;
     String Status;
+    String Telephone;
+    String Email;
+
+    public String getTelephone() {
+        return Telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        Telephone = telephone;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
 
     public String getUserNum() {
         return UserNum;

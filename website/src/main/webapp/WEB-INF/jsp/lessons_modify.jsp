@@ -1,11 +1,13 @@
-<%@ page import="com.company.website.entity.employees" %>
+<%@ page import="com.company.website.entity.items" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.company.website.entity.lessons" %>
+<%@ page import="com.company.website.entity.employees" %>
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html; charset=UTF-8"  %>
 <head>
-<title>新增操课——Fitness Club</title>
+<title>操课信息修改——Fitness Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -141,46 +143,54 @@
                 
             <div class="panel panel-widget forms-panel">
                     <div class="progressbar-heading general-heading">
-                        <h4>新增操课  :</h4>
+                        <h4>操课信息修改  :</h4>
                     </div>
                     <div class="forms">
                             <h3 class="title1"></h3>
                             <div class="form-three widget-shadow">
-                                <form class="form-horizontal" action="/lessonManagement-lessonAddCheck" method="post">
-                                    <div class="form-group">
-										<label for="focusedinput" class="col-sm-2 control-label" >课程名</label>
+								<% List<lessons> lesson = (List<lessons>)request.getAttribute("lesson"); %>
+                                <form class="form-horizontal" action="/lessonsManagement-lessonModifyCheck" method="post">
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label" >操课编号</label>
 										<div class="col-sm-8">
-											<input type="text" class="form-control" id="LessonName" name="LessonName">
+											<input value=<% out.print(lesson.get(0).getLessonNumber()); %> type="text" class="form-control" id="lessonNumber" name="lessonNumber" readonly>
 										</div>
 									</div>
+                                    <div class="form-group">
+                                            <label for="focusedinput" class="col-sm-2 control-label" >课程名</label>
+                                            <div class="col-sm-8">
+                                                <input value=<% out.print(lesson.get(0).getLessonName()); %> type="text" class="form-control" id="lessonName" name="lessonName">
+                                            </div>
+                                        </div>
 									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label" >课程日期</label>
 										<div class="col-sm-8">
-											<input type="date" class="form-control" id="LessonDay" name="LessonDay">
+											<input value=<% out.print(lesson.get(0).getDay()); %> type="date" class="form-control" id="day" name="day">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label" >课程时间</label>
+										<div class="col-sm-8"><select name="lessonTime" id="lessonTime" class="form-control1">
+											<option <% if(lesson.get(0).getTime()=="9:30--11:30") out.print("selected"); %> value="9:30--11:30" >9:30--11:30</option>
+											<option <% if(lesson.get(0).getTime()=="14:00--16:00") out.print("selected"); %> value="14:00--16:00" >14:00--16:00</option>
+											<option <% if(lesson.get(0).getTime()=="16:00--18:00") out.print("selected"); %> value="14:00--16:00" >16:00--18:00</option>
+											<option <% if(lesson.get(0).getTime()=="19:00--21:00") out.print("selected"); %> value="14:00--16:00" >19:00--21:00</option>
+										</select>
 										</div>
 									</div>
                                     <div class="form-group">
-                                        <label for="focusedinput" class="col-sm-2 control-label">课程时间</label>
-										<div class="col-sm-8"><select name="LessonTime" id="LessonTime" class="form-control1">
-											<option value="9:30--11:30">9:30--11:30</option>
-											<option value="14:00--16:00">14:00--16:00</option>
-											<option value="16:00--18:00">16:00--18:00</option>
-											<option value="19:00--21:00">19:00--21:00</option>
-										</select></div>
-                                    </div>
-									<div class="form-group">
-										<label for="focusedinput" class="col-sm-2 control-label">授课老师</label>
-										<div class="col-sm-8"><select name="TeacherNum" id="TeacherNum" class="form-control1">
+                                        <label for="focusedinput" class="col-sm-2 control-label">授课老师</label>
+										<div class="col-sm-8"><select name="lessonTeacher" id="lessonTeacher" class="form-control1">
 											<% List<employees> teachers = (List<employees>)request.getAttribute("teachers"); %>
 											<% for(int i=0;i<teachers.size();i++) {%>
-											<option value="<% out.print(teachers.get(i).getUserNum()); %>"><% out.print(teachers.get(i).getRealName()); %></option>
+											<option <% if(teachers.get(i).getUserNum()==lesson.get(0).getTeacherNum()) out.print("selected"); %> value="<% out.print(teachers.get(i).getUserNum()); %>"><% out.print(teachers.get(i).getRealName()); %></option>
 											<% } %>
 										</select></div>
-									</div>
+                                    </div>
 
                                     
                                     <div style="text-align: center;">
-                                        <button type="submit" class="btn btn-default w3ls-button" onclick="checkform()">点击新增操课</button>
+                                        <button type="submit" class="btn btn-default w3ls-button" onclick="checkform()">点击修改设备信息</button>
                                     </div>
                                 </form>
 								<script type="text/javascript">

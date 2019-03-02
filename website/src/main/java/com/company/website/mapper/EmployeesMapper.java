@@ -1,7 +1,10 @@
 package com.company.website.mapper;
 
+import com.company.website.entity.employees;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 
 public interface EmployeesMapper {
@@ -14,4 +17,7 @@ public interface EmployeesMapper {
 
     @Select("select count(UserNum) from employees where Status='在场'")
     Integer queryBusyTeacherNumber();
+
+    @Select("select * from employees where Job='私教'")
+    List<employees> queryAllTeachers();
 }

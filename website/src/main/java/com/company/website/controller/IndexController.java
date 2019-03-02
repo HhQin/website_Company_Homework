@@ -78,8 +78,7 @@ public class IndexController {
                 showLessons showlesson=new showLessons();
                 showlesson.setTime(lesson.getTime());
                 showlesson.setLessonName(lesson.getLessonName());
-                SimpleDateFormat sdf=new SimpleDateFormat("yyyy年MM月dd日");
-                showlesson.setDay(sdf.format(new Date(lesson.getDay())));
+                showlesson.setDay(lesson.getDay());
                 showlesson.setTeacherName(employeesService.queryNameByNumber(lesson.getTeacherNum()));
                 resultlessons.add(showlesson);
             }
