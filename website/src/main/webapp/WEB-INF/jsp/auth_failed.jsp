@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html; charset=UTF-8"  %>
 <head>
-<title>操作失败——Fitness Club</title>
+<title>权限认证失败——Fitness Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -140,10 +140,12 @@
             <div class="panel panel-widget forms-panel">
                     <div class="progressbar-heading general-heading">
 						<br>
-                        <center><h4 style="font-size: 25px">操作失败！</h4></center>
+                        <center><h4 style="font-size: 25px">对不起，您暂无此权限！</h4></center>
 						<center><h4 style="font-size: 25px">
+							<input type="button" name="Submit" onclick="javascript:history.back(-1);" value="返回上一页">
 							<input type="button" name="Submit" onclick="window.location.href='/homepage';" value="返回首页">
 						</h4></center>
+
 						<br><br>
                     </div>
 

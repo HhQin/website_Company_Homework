@@ -33,4 +33,9 @@ public class EmployeesServiceImpl implements EmployeesService {
     public List<employees> queryAllTeachers(){
         return employeesMapper.queryAllTeachers();
     }
+
+    @Override
+    public List<employees> queryEmployeeByLogName(String LogName){
+        return employeesMapper.queryEmployeeByLogName(LogName);
+    }
 }

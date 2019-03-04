@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -45,8 +47,7 @@ public class IndexController {
             showLessons showlesson=new showLessons();
             showlesson.setTime(lesson.getTime());
             showlesson.setLessonName(lesson.getLessonName());
-            SimpleDateFormat sdf=new SimpleDateFormat("yyyy年MM月dd日");
-            showlesson.setDay(sdf.format(new Date(lesson.getDay())));
+            showlesson.setDay(lesson.getDay());
             showlesson.setTeacherName(employeesService.queryNameByNumber(lesson.getTeacherNum()));
             resultlessons.add(showlesson);
         }
@@ -60,9 +61,14 @@ public class IndexController {
     }
 
     @RequestMapping(value = "/logincheck",method = RequestMethod.POST)
-    public String logincheck(employees employee, HttpServletResponse response) throws Exception{
+    public String logincheck(employees employee, HttpServletRequest request, HttpServletResponse response) throws Exception{
         if(employeesService.queryPassword(employee.getLogName())!=null
                 && employeesService.queryPassword(employee.getLogName()).equals(employee.getPassword())){
+            HttpSession sessoin=request.getSession();//这就是session的创建
+            employees queryEmployee = employeesService.queryEmployeeByLogName(employee.getLogName()).get(0);
+            sessoin.setAttribute("number",queryEmployee.getUserNum());
+            sessoin.setAttribute("name",queryEmployee.getRealName());
+            sessoin.setAttribute("job",queryEmployee.getJob());
             response.sendRedirect("/homepage");
             return "login";
         }else {
@@ -94,14 +100,19 @@ public class IndexController {
 
     }
 
-    @RequestMapping(value = "/customerQueryResult",method = RequestMethod.GET)
+    @RequestMapping(value = "/customerQueryResult",method = RequestMethod.POST)
     public String customerQueryResult(Model m,String VIPNumber){
         System.out.println("\n\n\n\n\n\n\n"+VIPNumber+"\n\n\n\n\n\n");
         return "query_result";
     }
 
-    @RequestMapping("operate_success")
+    @RequestMapping("/operate_success")
     public String operateSuccess(){
         return "operate_success";
+    }
+
+    @RequestMapping("/auth_failed")
+    public String authFailed(){
+        return "auth_failed";
     }
 }

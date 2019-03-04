@@ -15,9 +15,13 @@ public interface EmployeesMapper {
     @Select("select Password from employees where LogName=#{LogName}")
     String queryPassword(@Param(value = "LogName")String LogName);
 
+    @Select("select * from employees where LogName=#{LogName}")
+    List<employees> queryEmployeeByLogName(@Param(value = "LogName")String LogName);
+
     @Select("select count(UserNum) from employees where Status='在场'")
     Integer queryBusyTeacherNumber();
 
     @Select("select * from employees where Job='私教'")
     List<employees> queryAllTeachers();
+
 }

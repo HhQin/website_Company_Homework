@@ -75,7 +75,7 @@ $(function() {
 					<a href="index.html"><h1>Fitness <span>Club</span></h1></a>
 				</div>
 				    <div class="col-md-3 search">
-							<form action="/customerQueryResult">
+							<form action="/customerQueryResult" method="post">
 								<input type="submit" value="">
 								<input type="text" placeholder="输入会员号，查询运动信息" name="VIPNumber">
 							</form>

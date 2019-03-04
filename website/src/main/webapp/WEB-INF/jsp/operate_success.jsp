@@ -141,7 +141,10 @@
                     <div class="progressbar-heading general-heading">
 						<br>
                         <center><h4 style="font-size: 25px">操作成功！</h4></center>
-						<br><br>
+						<center><h4 style="font-size: 25px">
+							<input type="button" name="Submit" onclick="window.location.href='/homepage';" value="返回首页">
+						</h4></center>
+						<br><br>operate_failed.jsp
                     </div>
 
                 </div>
