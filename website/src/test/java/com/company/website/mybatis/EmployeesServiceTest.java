@@ -28,5 +28,9 @@ public class EmployeesServiceTest {
         System.out.println("result:"+result);
     }
 
+    @Test
+    public void testUpdateStatusByUserNum(){
+        employeesService.updateStatusByUserNum("休息","emp.19000001");
+    }
 }
 

@@ -11,6 +11,6 @@ public interface CustomersMapper {
     @Select("select count(*) from customers")
     Integer queryAllCustomerNumber();
 
-    @Select("select * from customer where TeacherNumber=#{TeacherNumber}")
+    @Select("select * from customers where TeacherNumber=#{TeacherNumber}")
     List<customers> queryCustomersByNumber(@Param(value = "TeacherNumber")String TeacherNumber);
 }

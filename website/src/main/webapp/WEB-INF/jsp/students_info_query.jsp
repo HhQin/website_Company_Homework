@@ -1,9 +1,11 @@
+<%@ page import="com.company.website.entity.customers" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html; charset=UTF-8"  %>
 <head>
-<title>操作成功——Fitness Club</title>
+<title>学员信息查询——Fitness Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -134,27 +136,58 @@
 			<div class="clearfix"> </div>
 		</section>
 
-		<div class="grids">
-            
-                
-            <div class="panel panel-widget forms-panel">
-                    <div class="progressbar-heading general-heading">
-						<br>
-                        <center><h4 style="font-size: 25px">操作成功！</h4></center>
-						<center><h4 style="font-size: 25px">
-							<input type="button" name="Submit" onclick="window.location.href='/homepage';" value="返回首页">
-						</h4></center>
-						<br><br>
+		<div class="agile-grids" >
+			<div class="col-md-4 charts-right" style="width:100%">
+				<!-- area-chart -->
+				<div class="area-grids">
+					<div class="area-grids-heading">
+					<% String teacherName = (String)request.getAttribute("teacherName"); %>
+                        <h3><% out.print(teacherName+"教练的"); %>学员信息查询<i><small><a id="download">(点击导出)</a></small></i></h3>
                     </div>
 
-                </div>
+					<div id="graph4"></div>
+					<div >
+						<table id="table_id_example1" class="display">
+										<thead>
+											 <tr>
+													 <th>会员卡号</th>
+													 <th>姓名</th> 
+													 <th>性别</th> 
+                                                     <th>年龄</th>                                                     
+                                                     <th>剩余私教课时数</th>
+												 	 <th>邮箱</th>
+												 	 <th>电话</th>
+											 </tr> 
+									 </thead> 
+									 <tbody>
+									 <% List<customers> resultStudents = (List<customers>)request.getAttribute("resultStudents"); %>
+									 <% for(int i=0;i<resultStudents.size();i++) {%>
+											 <tr> 
+													 <td><% out.print(resultStudents.get(i).getVIPNumber()); %></td>
+													 <td><% out.print(resultStudents.get(i).getRealName()); %></td>
+													 <td><% out.print(resultStudents.get(i).getSex()); %></td>
+                                                     <td><% out.print(resultStudents.get(i).getAge()); %></td>
+													 <td><% out.print(resultStudents.get(i).getLessonNumber()); %></td>
+												 	 <td><% out.print(resultStudents.get(i).getEmail()); %></td>
+												 	 <td><% out.print(resultStudents.get(i).getTelephone()); %></td>
+											 </tr> 
+									 <% } %>
+									 </tbody> 
+							 </table>
+							 <script>
+											 $(document).ready(function () {
+													 $('#table_id_example1').DataTable();
+											 });
+									 </script>
+			 </div>
+        </div>
+
+				</div>
+				<!-- //area-chart -->
+			</div>
 			
 			<div class="clearfix"> </div>
 		</div>
-		
-		
-
-
 
 		</div>
 		<!-- footer -->
@@ -165,6 +198,16 @@
 	</section>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/proton.js"></script>
-	
+	<script>
+        // 使用outerHTML属性获取整个table元素的HTML代码（包括<table>标签），然后包装成一个完整的HTML文档，设置charset为urf-8以防止中文乱码
+        var html = "<html><head><meta charset='utf-8' /></head><body>" + document.getElementsByTagName("table")[0].outerHTML + "</body></html>";
+        // 实例化一个Blob对象，其构造函数的第一个参数是包含文件内容的数组，第二个参数是包含文件类型属性的对象
+        var blob = new Blob([html], { type: "application/vnd.ms-excel" });
+        var a = document.getElementById("download");
+        // 利用URL.createObjectURL()方法为a元素生成blob URL
+        a.href = URL.createObjectURL(blob);
+        // 设置文件名
+        a.download = "<% out.print(teacherName+"教练的"); %>学员信息表.xls";
+    </script>
 </body>
 </html>

@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html; charset=UTF-8"  %>
 <head>
 <title>私教打卡签退——Fitness Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -136,35 +139,38 @@
                 
             <div class="panel panel-widget forms-panel">
                     <div class="progressbar-heading general-heading">
-                        <h4>打卡签退  :</h4>
+                        <h4>打卡/签退  :</h4>
                     </div>
                     <div class="forms">
                             <h3 class="title1"></h3>
                             <div class="form-three widget-shadow">
-                                <form class="form-horizontal" action="#" method="post">
+                                <form class="form-horizontal" action="/teacher_sign_in_check" method="post">
                                     <div class="form-group">
-                                        <label for="focusedinput" class="col-sm-2 control-label">工号</label>
+										<% String userNum = (String) request.getAttribute("userNum"); %>
+										<% String userName = (String) request.getAttribute("userName"); %>
+										<% String userStatus = (String) request.getAttribute("userStatus"); %>
+
+										<label for="focusedinput" class="col-sm-2 control-label">工号</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="number" disabled>
+                                            <input type="text" value="<% out.print(userNum); %>" class="form-control" id="number" name="number" readonly>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                             <label for="focusedinput" class="col-sm-2 control-label">姓名</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="name" disabled>
+                                                <input type="text" value="<% out.print(userName); %>" class="form-control" id="name" readonly>
                                             </div>
                                         </div>
                                     
                                         <div class="form-group">
-                                                <label for="selector1" class="col-sm-2 control-label">工作状态</label>
-                                                <div class="col-sm-8"><select name="selector1" id="condition" class="form-control1">
-                                                    <option>工作中</option>
-                                                    <option>休息中</option>
-                                                </select></div>
+											<label for="selector1" class="col-sm-2 control-label">工作状态</label>
+											<div class="col-sm-8">
+												<input type="text" value="<% out.print(userStatus); %>" class="form-control" id="status" readonly>
+											</div>
                                             </div>
                                     
                                     <div style="text-align: center;">
-                                        <button type="submit" class="btn btn-default w3ls-button">点击打卡签退</button>
+                                        <button type="submit" class="btn btn-default w3ls-button">点击打卡/签退</button>
                                     </div>
                                 </form>
                             </div>

@@ -11,4 +11,6 @@ public interface EmployeesService {
     Integer queryBusyTeacherNumber();
     List<employees> queryAllTeachers();
     List<employees> queryEmployeeByLogName(String LogName);
+    Boolean updateStatusByUserNum(String Status,String UserNum);
+
 }

@@ -69,6 +69,7 @@ public class IndexController {
             sessoin.setAttribute("number",queryEmployee.getUserNum());
             sessoin.setAttribute("name",queryEmployee.getRealName());
             sessoin.setAttribute("job",queryEmployee.getJob());
+            sessoin.setAttribute("logname",queryEmployee.getLogName());
             response.sendRedirect("/homepage");
             return "login";
         }else {

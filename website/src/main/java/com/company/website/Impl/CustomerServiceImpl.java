@@ -20,7 +20,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public List<customers> queryCustomersByNumber(String TeacherNumber){
+    public List<customers> queryCustomersByTeacherNumber(String TeacherNumber){
         return customersMapper.queryCustomersByNumber(TeacherNumber);
     }
 }

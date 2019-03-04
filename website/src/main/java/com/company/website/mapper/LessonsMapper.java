@@ -22,4 +22,7 @@ public interface LessonsMapper {
     @Update("Update lessons set LessonName=#{lessonName},Day=#{day},Time=#{time},TeacherNum=#{teacherNum} where LessonNumber=#{lessonNumber}")
     Boolean updateLessonByNumber(@Param(value ="lessonNumber" )String lessonNumber,@Param(value = "lessonName")String lessonName,
                                  @Param(value = "day")String day,@Param(value = "time")String time,@Param(value = "teacherNum")String teacherNum);
+
+    @Select("select * from lessons where TeacherNum=#{TeacherNum}")
+    List<lessons> queryLessonsByTeacherNumber(@Param(value = "TeacherNum")String TeacherNum);
 }

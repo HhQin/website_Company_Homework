@@ -38,4 +38,9 @@ public class EmployeesServiceImpl implements EmployeesService {
     public List<employees> queryEmployeeByLogName(String LogName){
         return employeesMapper.queryEmployeeByLogName(LogName);
     }
+
+    @Override
+    public Boolean updateStatusByUserNum(String Status,String UserNum){
+        return employeesMapper.updateStatusByUserNum(Status,UserNum);
+    }
 }

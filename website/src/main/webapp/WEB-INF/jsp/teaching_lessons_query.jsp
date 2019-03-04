@@ -1,6 +1,12 @@
+<%@ page import="com.company.website.entity.customers" %>
+<%@ page import="java.util.List" %>
+<%@ page import="com.company.website.entity.lessons" %>
 <!DOCTYPE html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html; charset=UTF-8"  %>
 <head>
-<title>学员信息查询——Fitness Club</title>
+<title>授课信息查询——Fitness Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -136,7 +142,8 @@
 				<!-- area-chart -->
 				<div class="area-grids">
 					<div class="area-grids-heading">
-                        <h3>学员信息查询<i><small><a id="download">(点击导出)</a></small></i></h3>                        
+					<% String teacherName = (String)request.getAttribute("teacherName"); %>
+                        <h3><% out.print(teacherName+"教练的"); %>授课信息查询<i><small><a id="download">(点击导出)</a></small></i></h3>
                     </div>
 
 					<div id="graph4"></div>
@@ -144,49 +151,21 @@
 						<table id="table_id_example1" class="display">
 										<thead>
 											 <tr>
-													 <th>会员卡号</th>
-													 <th>姓名</th> 
-													 <th>性别</th> 
-                                                     <th>年龄</th>                                                     
-                                                     <th>剩余私教课时数</th>
+													 <th>日期</th>
+													 <th>时间</th>
+													 <th>课程名</th>
+
 											 </tr> 
 									 </thead> 
-									 <tbody> 
+									 <tbody>
+									 <% List<lessons> resultLessons = (List<lessons>)request.getAttribute("resultLessons"); %>
+									 <% for(int i=0;i<resultLessons.size();i++) {%>
 											 <tr> 
-													 <td>VIP.20181201</td> 
-													 <td>张三</td> 
-													 <td>男</td>
-                                                     <td>21</td>
-													 <td>20</td>
+													 <td><% out.print(resultLessons.get(i).getDay()); %></td>
+													 <td><% out.print(resultLessons.get(i).getTime()); %></td>
+													 <td><% out.print(resultLessons.get(i).getLessonName()); %></td>
 											 </tr> 
-											 <tr> 
-                                                    <td>VIP.20181201</td> 
-                                                    <td>张三</td> 
-                                                    <td>男</td>
-                                                    <td>21</td>
-                                                    <td>20</td>
-                                            </tr>
-                                            <tr> 
-                                                    <td>VIP.20181201</td> 
-                                                    <td>张三</td> 
-                                                    <td>男</td>
-                                                    <td>21</td>
-                                                    <td>20</td>
-                                            </tr>
-                                            <tr> 
-                                                    <td>VIP.20181201</td> 
-                                                    <td>张三</td> 
-                                                    <td>男</td>
-                                                    <td>21</td>
-                                                    <td>20</td>
-                                            </tr>
-                                            <tr> 
-                                                    <td>VIP.20181201</td> 
-                                                    <td>张三</td> 
-                                                    <td>男</td>
-                                                    <td>21</td>
-                                                    <td>20</td>
-                                            </tr>
+									 <% } %>
 									 </tbody> 
 							 </table>
 							 <script>
@@ -222,7 +201,7 @@
         // 利用URL.createObjectURL()方法为a元素生成blob URL
         a.href = URL.createObjectURL(blob);
         // 设置文件名
-        a.download = "客户信息表.xls";
+        a.download = "<% out.print(teacherName+"教练的"); %>授课信息表.xls";
     </script>
 </body>
 </html>

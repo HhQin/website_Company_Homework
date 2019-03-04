@@ -9,6 +9,24 @@ public class customers {
     Long EndDate;
     Integer LessonNumber;
     String TeacherNumber;
+    String Telephone;
+    String Email;
+
+    public String getTelephone() {
+        return Telephone;
+    }
+
+    public void setTelephone(String telephone) {
+        Telephone = telephone;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
+    }
 
     public String getVIPNumber() {
         return VIPNumber;

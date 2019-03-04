@@ -11,5 +11,5 @@ public interface LessonsService {
     Boolean deleteLessonByNumber(String LessonNumber);
     List<lessons> queryLessonByNumber(String LessonNumber);
     Boolean updateLessonByNumber(String lessonNumber,String lessonName, String day,String time,String teacherNum);
-
+    List<lessons> queryLessonsByTeacherNumber(String TeacherNum);
 }

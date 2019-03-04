@@ -38,4 +38,8 @@ public class LessonsServiceImpl implements LessonsService {
         return lessonsMapper.updateLessonByNumber(lessonNumber,lessonName,day,time,teacherNum);
     }
 
+    @Override
+    public List<lessons> queryLessonsByTeacherNumber(String TeacherNum){
+        return lessonsMapper.queryLessonsByTeacherNumber(TeacherNum);
+    }
 }
