@@ -24,4 +24,9 @@ public class GetIntoServiceImpl implements GetIntoService {
         return getIntoMapper.queryCustomerNumberByTime(BeginTime,EndTime);
     }
 
+    @Override
+    public Boolean createNewGetinto(String VIPNumber,Long GetInTime, Integer LessonUse,String notes){
+        return getIntoMapper.createNewGetinto(VIPNumber,GetInTime,LessonUse,notes);
+    }
+
 }

@@ -1,8 +1,9 @@
-package com.company.website.entity;
+package com.company.website.showClasses;
 
-public class GetInto {
+public class showGetInto {
     String VIPNumber;
-    Long GetInTime;
+    String VIPName;
+    String GetInTime;
     Integer LessonUse;
     String Notes;
 
@@ -14,6 +15,15 @@ public class GetInto {
         Notes = notes;
     }
 
+    public String getVIPName() {
+        return VIPName;
+    }
+
+    public void setVIPName(String VIPName) {
+        this.VIPName = VIPName;
+    }
+
+
     public String getVIPNumber() {
         return VIPNumber;
     }
@@ -22,11 +32,11 @@ public class GetInto {
         this.VIPNumber = VIPNumber;
     }
 
-    public Long getGetInTime() {
+    public String getGetInTime() {
         return GetInTime;
     }
 
-    public void setGetInTime(Long getInTime) {
+    public void setGetInTime(String getInTime) {
         GetInTime = getInTime;
     }
 

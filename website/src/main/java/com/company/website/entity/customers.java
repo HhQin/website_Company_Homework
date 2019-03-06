@@ -4,13 +4,33 @@ public class customers {
     String VIPNumber;
     String RealName;
     String Sex;
-    Integer Age;
+    String Birthday;
     Long StartDate;
     Long EndDate;
     Integer LessonNumber;
     String TeacherNumber;
     String Telephone;
     String Email;
+
+    public String getIdentity() {
+        return Identity;
+    }
+
+    public void setIdentity(String identity) {
+        Identity = identity;
+    }
+
+    String Identity;
+
+    public String getBirthday() {
+        return Birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        Birthday = birthday;
+    }
+
+
 
     public String getTelephone() {
         return Telephone;
@@ -52,13 +72,6 @@ public class customers {
         Sex = sex;
     }
 
-    public Integer getAge() {
-        return Age;
-    }
-
-    public void setAge(Integer age) {
-        Age = age;
-    }
 
     public Long getStartDate() {
         return StartDate;

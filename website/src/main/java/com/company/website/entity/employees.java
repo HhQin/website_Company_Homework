@@ -6,11 +6,21 @@ public class employees {
     String Password;
     String RealName;
     String Sex;
-    Integer Age;
+    String Birthday;
     String Job;
     String Status;
     String Telephone;
     String Email;
+
+    public String getBirthday() {
+        return Birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        Birthday = birthday;
+    }
+
+
 
     public String getTelephone() {
         return Telephone;
@@ -68,13 +78,7 @@ public class employees {
         Sex = sex;
     }
 
-    public Integer getAge() {
-        return Age;
-    }
 
-    public void setAge(Integer age) {
-        Age = age;
-    }
 
     public String getJob() {
         return Job;

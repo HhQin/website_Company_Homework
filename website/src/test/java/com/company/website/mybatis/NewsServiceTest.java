@@ -1,6 +1,8 @@
 package com.company.website.mybatis;
 
 import com.company.website.entity.GetInto;
+import com.company.website.service.CustomerService;
+import com.company.website.service.EmployeesService;
 import com.company.website.service.GetIntoService;
 
 import org.junit.Test;
@@ -18,6 +20,9 @@ public class NewsServiceTest {
     @Resource(name = "GetIntoService")
     GetIntoService getIntoService;
 
+    @Resource
+    CustomerService customerService;
+
     @Test
     public void testQueryAllGetintos() {
         List<GetInto> result=getIntoService.queryAllGetintos();
@@ -26,6 +31,11 @@ public class NewsServiceTest {
             System.out.println(x.getGetInTime());
             System.out.println(x.getLessonUse());
         }
+    }
+
+    @Test
+    public void testInsertIntoCustomers(){
+
     }
 
 

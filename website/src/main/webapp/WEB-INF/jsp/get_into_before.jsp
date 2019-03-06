@@ -1,11 +1,11 @@
-<%@ page import="com.company.website.entity.customers" %>
+<%@ page import="com.company.website.showClasses.showCustomer" %>
 <%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html; charset=UTF-8"  %>
 <head>
-<title>学员信息查询——Fitness Club</title>
+<title>客户入场登记——Fitness Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -141,8 +141,7 @@
 				<!-- area-chart -->
 				<div class="area-grids">
 					<div class="area-grids-heading">
-					<% String teacherName = (String)request.getAttribute("teacherName"); %>
-                        <h3><% out.print(teacherName+"教练的"); %>学员信息查询<i><small><a id="download">(点击导出)</a></small></i></h3>
+                        <h3>客户信息查询<i><small><a id="download">(点击导出)</a></small></i></h3>                        
                     </div>
 
 					<div id="graph4"></div>
@@ -154,23 +153,30 @@
 													 <th>姓名</th> 
 													 <th>性别</th> 
                                                      <th>出生日期</th>
+                                                     <th>开卡日期</th> 
+													 <th>剩余天数</th>
                                                      <th>剩余私教课时数</th>
-												 	 <th>邮箱</th>
-												 	 <th>电话</th>
+                                                     <th>专属私教</th>
+												 	 <th>入场</th>
 											 </tr> 
 									 </thead> 
 									 <tbody>
-									 <% List<customers> resultStudents = (List<customers>)request.getAttribute("resultStudents"); %>
-									 <% for(int i=0;i<resultStudents.size();i++) {%>
-											 <tr> 
-													 <td><% out.print(resultStudents.get(i).getVIPNumber()); %></td>
-													 <td><% out.print(resultStudents.get(i).getRealName()); %></td>
-													 <td><% out.print(resultStudents.get(i).getSex()); %></td>
-                                                     <td><% out.print(resultStudents.get(i).getBirthday()); %></td>
-													 <td><% out.print(resultStudents.get(i).getLessonNumber()); %></td>
-												 	 <td><% out.print(resultStudents.get(i).getEmail()); %></td>
-												 	 <td><% out.print(resultStudents.get(i).getTelephone()); %></td>
-											 </tr> 
+									 <% List<showCustomer> resultCustomer = (List<showCustomer>)request.getAttribute("resultCustomer"); %>
+									 <% for(int i=0;i<resultCustomer.size();i++) {%>
+									 <tr>
+										 <td><% out.print(resultCustomer.get(i).getVIPNumber()); %></td>
+										 <td><% out.print(resultCustomer.get(i).getRealName()); %></td>
+										 <td><% out.print(resultCustomer.get(i).getSex()); %></td>
+										 <td><% out.print(resultCustomer.get(i).getBirthday()); %></td>
+										 <td><% out.print(resultCustomer.get(i).getBeginDay()); %></td>
+										 <td><% out.print(resultCustomer.get(i).getLastDays()); %></td>
+										 <td><% out.print(resultCustomer.get(i).getLessonNumber()); %></td>
+										 <td><% out.print(resultCustomer.get(i).getTeacherName()); %></td>
+										 <td>
+											 <button type="button" onclick="window.location.href='/get_into_register-<% out.print(resultCustomer.get(i).getVIPNumber()); %>'" class="btn bg-info light text-white fw600 text-center btn-sm btn-primary btn-block">点击入场</button>
+										 </td>
+
+									 </tr>
 									 <% } %>
 									 </tbody> 
 							 </table>
@@ -207,7 +213,7 @@
         // 利用URL.createObjectURL()方法为a元素生成blob URL
         a.href = URL.createObjectURL(blob);
         // 设置文件名
-        a.download = "<% out.print(teacherName+"教练的"); %>学员信息表.xls";
+        a.download = "客户信息表.xls";
     </script>
 </body>
 </html>
