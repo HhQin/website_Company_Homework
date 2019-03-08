@@ -35,8 +35,13 @@ public class NewsServiceTest {
 
     @Test
     public void testInsertIntoCustomers(){
-
-    }
+        try {
+            customerService.createNewCustomer("VIP.12345678", "DAIJIBA", "妖", "1997-01-02", 1552025176000L, 1552025376000L, 21, "emp.19000001", "18861812785", "405903618@qq.com","公司家人");
+            System.out.println("\n\n\n\n\n\n\n\n\n\n成功！");
+        }catch (Exception e){
+            System.out.println("\n\n\n\n\n\n\n\n\n\n失败！");
+        }
+        }
 
 
 }

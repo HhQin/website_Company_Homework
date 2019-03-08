@@ -11,6 +11,7 @@ public class customers {
     String TeacherNumber;
     String Telephone;
     String Email;
+    String Identity;
 
     public String getIdentity() {
         return Identity;
@@ -20,7 +21,7 @@ public class customers {
         Identity = identity;
     }
 
-    String Identity;
+
 
     public String getBirthday() {
         return Birthday;

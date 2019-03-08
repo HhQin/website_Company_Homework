@@ -1,4 +1,8 @@
+<%@ page import="com.company.website.entity.customers" %>
 <!DOCTYPE html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html; charset=UTF-8"  %>
 <head>
 <title>老客户续卡——Fitness Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -142,29 +146,31 @@
                             <h3 class="title1"></h3>
                             <div class="form-three widget-shadow">
                                 <form class="form-horizontal" action="#" method="post">
+							<% customers VIPResult = (customers)request.getAttribute("VIPResult"); %>
+							<% String resultTime = (String) request.getAttribute("resultTime"); %>
                                         <div class="form-group">
                                                 <label for="focusedinput" class="col-sm-2 control-label">会员卡号</label>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="name" value="VIP20181201" disabled>
+                                                    <input type="text" class="form-control" name="VIPNumber" id="VIPNumber" value="<% out.print(VIPResult.getVIPNumber()); %>" readonly>
                                                 </div>
                                             </div>
                                     <div class="form-group">
                                             <label for="focusedinput" class="col-sm-2 control-label">姓名</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="name" value="张三" disabled>
+                                                <input type="text" class="form-control" name="name" id="name" value="<% out.print(VIPResult.getRealName()); %>" readonly>
                                             </div>
                                         </div>
                                     
                                     <div class="form-group">
                                         <label for="focusedinput" class="col-sm-2 control-label">到期日期</label>
                                         <div class="col-sm-8">
-                                            <input type="date" id="endDate" value="2019-05-01"/>
+                                            <input type="date" id="endDate" name="endDate" class="form-control" value="<% out.print(resultTime); %>"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
                                             <label for="focusedinput" class="col-sm-2 control-label">续购私教课时数</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="lesson" value="0">
+                                                <input type="text" class="form-control" name="lesson" id="lesson" value="0">
                                             </div>
                                         </div>
                                     <div style="text-align: center;">

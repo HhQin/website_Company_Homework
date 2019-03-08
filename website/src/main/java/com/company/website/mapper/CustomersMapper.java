@@ -28,6 +28,9 @@ public interface CustomersMapper {
     @Update("update customers set LessonNumber=LessonNumber-#{useNumber} where VIPNumber=#{VIPNumber}")
     Boolean useLessonByVIPNumber(@Param(value = "useNumber")int useNumber,@Param(value = "VIPNumber")String VIPNumber);
 
-    @Insert("insert into customers values (#{VIPNumber},#{RealName},#{Sex},#{Birthday},#{StartDate},#{EndDate},#{LessonNumber},#{TeacherNumber},#{Telephone},#{Eamil})")
-    Boolean createNewCustomer(@Param(value = "VIPNumber")String VIPNumber,@Param(value = "RealName")String RealName, @Param(value = "Sex")String Sex,@Param(value = "Birthday")String Birthday, @Param(value = "StartDate")Long StartDate,@Param(value = "EndDate")Long EndDate, @Param(value = "LessonNumber")String LessonNumber,@Param(value = "TeacherNumber")String TeacherNumber, @Param(value = "Telephone")String Telephone,@Param(value = "Eamil")String Eamil);
+    @Insert("insert into customers (VIPNumber,RealName,Sex,Birthday,StartDate,EndDate,LessonNumber,TeacherNumber,Telephone,Email,Identity) values (#{VIPNumber},#{RealName},#{Sex},#{Birthday},#{StartDate},#{EndDate},#{LessonNumber},#{TeacherNumber},#{Telephone},#{Email},#{Identity})")
+    Boolean createNewCustomer(@Param(value = "VIPNumber")String VIPNumber,@Param(value = "RealName")String RealName, @Param(value = "Sex")String Sex,@Param(value = "Birthday")String Birthday, @Param(value = "StartDate")Long StartDate,@Param(value = "EndDate")Long EndDate, @Param(value = "LessonNumber")Integer LessonNumber,@Param(value = "TeacherNumber")String TeacherNumber, @Param(value = "Telephone")String Telephone,@Param(value = "Email")String Email,@Param(value = "Identity")String Identity);
+
+    @Update("update customers set LessonNumber=LessonNumber+#{useNumber},EndDate=#{EndDate} where VIPNumber=#{VIPNumber}")
+    Boolean oldVIPUpdate(@Param(value = "useNumber")Integer useNumber,@Param(value = "EndDate")Long EndDate,@Param(value = "VIPNumber")String VIPNumber);
 }

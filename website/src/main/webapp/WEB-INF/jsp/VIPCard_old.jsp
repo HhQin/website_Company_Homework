@@ -1,6 +1,11 @@
+<%@ page import="com.company.website.entity.customers" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html; charset=UTF-8"  %>
 <head>
-<title>新用户开卡——Fitness Club</title>
+<title>客户续卡——Fitness Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -131,75 +136,52 @@
 			<div class="clearfix"> </div>
 		</section>
 
-		<div class="grids">
-            
-                
-            <div class="panel panel-widget forms-panel">
-                    <div class="progressbar-heading general-heading">
-                        <h4>新开会员卡  :</h4>
+		<div class="agile-grids" >
+			<div class="col-md-4 charts-right" style="width:100%">
+				<!-- area-chart -->
+				<div class="area-grids">
+					<div class="area-grids-heading">
+                        <h3>客户续卡</h3>                        
                     </div>
-                    <div class="forms">
-                            <h3 class="title1"></h3>
-                            <div class="form-three widget-shadow">
-                                <form class="form-horizontal" action="#" method="post">
-                                    <div class="form-group">
-                                            <label for="focusedinput" class="col-sm-2 control-label">姓名</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="name">
-                                            </div>
-                                        </div>
-                                    <div class="form-group">
-                                        <label for="focusedinput" class="col-sm-2 control-label">性别</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" class="form-control" id="sex">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                            <label for="focusedinput" class="col-sm-2 control-label">年龄</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="age">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                                <label for="selector1" class="col-sm-2 control-label">会员身份</label>
-                                                <div class="col-sm-8"><select name="selector1" id="who" class="form-control1">
-                                                    <option>公司职员</option>
-                                                    <option>社会大众</option>
-                                                </select></div>
-                                            </div>
-                                    <div class="form-group">
-                                        <label for="focusedinput" class="col-sm-2 control-label">到期日期</label>
-                                        <div class="col-sm-8">
-                                            <input type="date" id="endDate"/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                            <label for="focusedinput" class="col-sm-2 control-label">购买私教课时数</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="lesson" value="0">
-                                            </div>
-                                        </div>
-                                    <div class="form-group">
-                                        <label for="selector1" class="col-sm-2 control-label">专属私教</label>
-                                        <div class="col-sm-8"><select id="teacher" class="form-control1">
-                                            <option value="NO.10001">张涛</option>
-                                            <option value="NO.10002">戴月明</option>
-                                        </select></div>
-                                    </div>
-                                    <div style="text-align: center;">
-                                        <button type="submit" class="btn btn-default w3ls-button">提交开卡申请</button>
-                                    </div>
-                                </form>
-                            </div>
-                    </div>
-                </div>
+
+					<div id="graph4"></div>
+					<div >
+                            <table id="table_id_example1" class="display">
+                                    <thead>
+                                         <tr>
+                                                 <th>会员卡号</th>
+                                                 <th>姓名</th>                                                 
+                                                 <th>续卡</th>
+                                         </tr> 
+                                 </thead> 
+                                 <tbody> 
+
+										 <% List<customers> VIPResult = (List<customers>)request.getAttribute("VIPResult"); %>
+										 <% for(int i=0;i<VIPResult.size();i++) {%>
+										 <tr>
+											 <td><% out.print(VIPResult.get(i).getVIPNumber()); %></td>
+											 <td><% out.print(VIPResult.get(i).getRealName()); %></td>
+											 <td>
+												 <button type="button" onclick="window.location.href='/VIPManagement_Old_VIP_-<% out.print(VIPResult.get(i).getVIPNumber()); %>'" class="btn bg-info light text-white fw600 text-center btn-sm btn-primary btn-block">点击续卡</button>
+											 </td>
+										 </tr>
+										 <% } %>
+                                 </tbody> 
+                         </table>
+							 <script>
+											 $(document).ready(function () {
+													 $('#table_id_example1').DataTable();
+											 });
+									 </script>
+			 </div>
+        </div>
+
+				</div>
+				<!-- //area-chart -->
+			</div>
 			
 			<div class="clearfix"> </div>
 		</div>
-		
-		
-
-
 
 		</div>
 		<!-- footer -->

@@ -46,7 +46,12 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Boolean createNewCustomer(String VIPNumber,String RealName, String Sex,String Birthday, Long StartDate,Long EndDate, String LessonNumber,String TeacherNumber, String Telephone,String Eamil){
-        return customersMapper.createNewCustomer(VIPNumber,RealName,Sex,Birthday,StartDate,EndDate,LessonNumber,TeacherNumber,Telephone,Eamil);
+    public Boolean createNewCustomer(String VIPNumber,String RealName, String Sex,String Birthday, Long StartDate,Long EndDate, Integer LessonNumber,String TeacherNumber, String Telephone,String Email,String Identity){
+        return customersMapper.createNewCustomer(VIPNumber,RealName,Sex,Birthday,StartDate,EndDate,LessonNumber,TeacherNumber,Telephone,Email,Identity);
+    }
+
+    @Override
+    public Boolean oldVIPUpdate(Integer useNumber,Long EndDate,String VIPNumber){
+        return customersMapper.oldVIPUpdate(useNumber,EndDate,VIPNumber);
     }
 }

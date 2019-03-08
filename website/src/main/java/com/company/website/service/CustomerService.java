@@ -12,6 +12,6 @@ public interface CustomerService {
     List<customers> queryCustomersByTeacherNumber(String TeacherNumber);
     String queryNameByNumber(String VIPNumber);
     Boolean useLessonByVIPNumber(int useNumber,String VIPNumber);
-    Boolean createNewCustomer(String VIPNumber,String RealName, String Sex,String Birthday, Long StartDate,Long EndDate, String LessonNumber,String TeacherNumber, String Telephone,String Eamil);
-
+    Boolean createNewCustomer(String VIPNumber,String RealName, String Sex,String Birthday, Long StartDate,Long EndDate, Integer LessonNumber,String TeacherNumber, String Telephone,String Email,String Identity);
+    Boolean oldVIPUpdate(Integer useNumber,Long EndDate,String VIPNumber);
 }
