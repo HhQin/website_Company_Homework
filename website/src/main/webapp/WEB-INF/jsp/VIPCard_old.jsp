@@ -162,7 +162,7 @@
 											 <td><% out.print(VIPResult.get(i).getVIPNumber()); %></td>
 											 <td><% out.print(VIPResult.get(i).getRealName()); %></td>
 											 <td>
-												 <button type="button" onclick="window.location.href='/VIPManagement_Old_VIP_-<% out.print(VIPResult.get(i).getVIPNumber()); %>'" class="btn bg-info light text-white fw600 text-center btn-sm btn-primary btn-block">点击续卡</button>
+												 <button type="button" onclick="window.location.href='/VIPManagement_Old_VIP_<% out.print(VIPResult.get(i).getVIPNumber()); %>'" class="btn bg-info light text-white fw600 text-center btn-sm btn-primary btn-block">点击续卡</button>
 											 </td>
 										 </tr>
 										 <% } %>

@@ -14,4 +14,7 @@ public interface CustomerService {
     Boolean useLessonByVIPNumber(int useNumber,String VIPNumber);
     Boolean createNewCustomer(String VIPNumber,String RealName, String Sex,String Birthday, Long StartDate,Long EndDate, Integer LessonNumber,String TeacherNumber, String Telephone,String Email,String Identity);
     Boolean oldVIPUpdate(Integer useNumber,Long EndDate,String VIPNumber);
+    Boolean deleteCustomerByVIPNumber(String VIPNumber);
+    Boolean customerUpdate(String VIPNumber,String RealName,String Sex,String Birthday,String TeacherNumber,String Telephone,String Email,String Identity);
+
 }

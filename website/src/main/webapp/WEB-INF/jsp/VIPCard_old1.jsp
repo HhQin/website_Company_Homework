@@ -145,7 +145,7 @@
                     <div class="forms">
                             <h3 class="title1"></h3>
                             <div class="form-three widget-shadow">
-                                <form class="form-horizontal" action="#" method="post">
+                                <form class="form-horizontal" action="/VIPManagement_Old_VIP_Check" method="post">
 							<% customers VIPResult = (customers)request.getAttribute("VIPResult"); %>
 							<% String resultTime = (String) request.getAttribute("resultTime"); %>
                                         <div class="form-group">

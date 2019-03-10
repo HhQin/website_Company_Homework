@@ -54,4 +54,14 @@ public class CustomerServiceImpl implements CustomerService {
     public Boolean oldVIPUpdate(Integer useNumber,Long EndDate,String VIPNumber){
         return customersMapper.oldVIPUpdate(useNumber,EndDate,VIPNumber);
     }
+
+    @Override
+    public Boolean deleteCustomerByVIPNumber(String VIPNumber){
+        return customersMapper.deleteCustomerByVIPNumber(VIPNumber);
+    }
+
+    @Override
+    public Boolean customerUpdate(String VIPNumber,String RealName,String Sex,String Birthday,String TeacherNumber,String Telephone,String Email,String Identity){
+        return customersMapper.customerUpdate(VIPNumber,RealName,Sex,Birthday,TeacherNumber,Telephone,Email,Identity);
+    }
 }

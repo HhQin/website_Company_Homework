@@ -1,10 +1,7 @@
 package com.company.website.mapper;
 
 import com.company.website.entity.customers;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -33,4 +30,10 @@ public interface CustomersMapper {
 
     @Update("update customers set LessonNumber=LessonNumber+#{useNumber},EndDate=#{EndDate} where VIPNumber=#{VIPNumber}")
     Boolean oldVIPUpdate(@Param(value = "useNumber")Integer useNumber,@Param(value = "EndDate")Long EndDate,@Param(value = "VIPNumber")String VIPNumber);
+
+    @Delete("delete from customers where VIPNumber=#{VIPNumber}")
+    Boolean deleteCustomerByVIPNumber(@Param(value = "VIPNumber")String VIPNumber);
+
+    @Update("update customers set RealName=#{RealName},Sex=#{Sex},Birthday=#{Birthday},TeacherNumber=#{TeacherNumber},Telephone=#{Telephone},Email=#{Email},Identity=#{Identity} where VIPNumber=#{VIPNumber}")
+    Boolean customerUpdate(@Param(value = "VIPNumber")String VIPNumber,@Param(value = "RealName")String RealName, @Param(value = "Sex")String Sex,@Param(value = "Birthday")String Birthday, @Param(value = "TeacherNumber")String TeacherNumber,@Param(value = "Telephone")String Telephone, @Param(value = "Email")String Email,@Param(value = "Identity")String Identity);
 }

@@ -38,6 +38,9 @@ public class CustomerController {
         List<showCustomer> resultCustomer = new ArrayList<>();
         List<customers> queryCustomer = customerService.queryAllCustomers();
         for(customers customer:queryCustomer){
+            int lastDayNumber = (int)((customer.getEndDate()-System.currentTimeMillis())/86400000);
+            if(lastDayNumber<=0)
+                continue;
             showCustomer tempShowCustomer = new showCustomer();
             tempShowCustomer.setVIPNumber(customer.getVIPNumber());
             tempShowCustomer.setRealName(customer.getRealName());
@@ -46,7 +49,6 @@ public class CustomerController {
             long time1 = customer.getStartDate();
             String begintTime = new SimpleDateFormat("yyyy年MM月dd日").format(time1);
             tempShowCustomer.setBeginDay(begintTime);
-            int lastDayNumber = (int)((customer.getEndDate()-System.currentTimeMillis())/86400000);
             tempShowCustomer.setLastDays(lastDayNumber);
             tempShowCustomer.setLessonNumber(customer.getLessonNumber());
             tempShowCustomer.setTeacherName(employeesService.queryNameByNumber(customer.getTeacherNumber()));
@@ -118,9 +120,64 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/VIPManagement_Old_VIP_Check",method = RequestMethod.POST)
-    public String Old_VIP_check(String VIPNumber,String name,String endDate,Integer lesson){
+    public String Old_VIP_check(String VIPNumber,String name,String endDate,Integer lesson) throws ParseException{
         try{
-            Long time =
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Long time = sdf.parse(endDate).getTime();
+            customerService.oldVIPUpdate(lesson,time,VIPNumber);
+            return "operate_success";
+        }catch (Exception e){
+            return "operate_failed";
+        }
+    }
+
+    @RequestMapping("/CustomerManagement")
+    public String customerManagement(Model m){
+        List<showCustomer> resultCustomer = new ArrayList<>();
+        List<customers> queryCustomer = customerService.queryAllCustomers();
+        for(customers customer:queryCustomer){
+            showCustomer tempShowCustomer = new showCustomer();
+            tempShowCustomer.setVIPNumber(customer.getVIPNumber());
+            tempShowCustomer.setRealName(customer.getRealName());
+            tempShowCustomer.setSex(customer.getSex());
+            tempShowCustomer.setBirthday(customer.getBirthday());
+            long time1 = customer.getStartDate();
+            String begintTime = new SimpleDateFormat("yyyy年MM月dd日").format(time1);
+            tempShowCustomer.setBeginDay(begintTime);
+            int lastDayNumber = (int)((customer.getEndDate()-System.currentTimeMillis())/86400000);
+            tempShowCustomer.setLastDays(lastDayNumber);
+            tempShowCustomer.setLessonNumber(customer.getLessonNumber());
+            tempShowCustomer.setTeacherName(employeesService.queryNameByNumber(customer.getTeacherNumber()));
+            resultCustomer.add(tempShowCustomer);
+        }
+        m.addAttribute("resultCustomer",resultCustomer);
+        return "Customer_management";
+    }
+
+    @RequestMapping("/customersManagement-customerDeleteCheck-{VIPNumber}")
+    public String customerDeleteCheck(@PathVariable String VIPNumber){
+        try{
+            customerService.deleteCustomerByVIPNumber(VIPNumber);
+            return "operate_success";
+        }catch (Exception e){
+            return "operate_failed";
+        }
+    }
+
+    @RequestMapping("/customersManagement-customerModify-{VIPNumber}")
+    public String customerModify(@PathVariable String VIPNumber,Model m){
+        m.addAttribute("teachers",employeesService.queryAllTeachers());
+        m.addAttribute("customer",customerService.queryCustomerByVIPNumber(VIPNumber));
+        return "customer_modify";
+    }
+
+    @RequestMapping(value = "/customersManagement-customerModify-check",method = RequestMethod.POST)
+    public String customerModifyCheck(String VIPNumber,String name,String sex,String birthday,String identity,String teacher,String telephone,String email){
+        try{
+            customerService.customerUpdate(VIPNumber,name,sex,birthday,teacher,telephone,email,identity);
+            return "operate_success";
+        }catch (Exception e){
+            return "operate_failed";
         }
     }
 }

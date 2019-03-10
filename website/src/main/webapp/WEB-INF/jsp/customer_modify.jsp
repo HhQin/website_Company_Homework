@@ -1,6 +1,12 @@
+<%@ page import="com.company.website.entity.customers" %>
+<%@ page import="com.company.website.entity.employees" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page contentType="text/html; charset=UTF-8"  %>
 <head>
-<title>客户信息删除——Fitness Club</title>
+<title>客户信息修改——Fitness Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -131,106 +137,80 @@
 			<div class="clearfix"> </div>
 		</section>
 
-		<div class="agile-grids" >
-			<div class="col-md-4 charts-right" style="width:100%">
-				<!-- area-chart -->
-				<div class="area-grids">
-					<div class="area-grids-heading">
-                        <h3>客户信息删除</h3>                        
-                    </div>
+		<div class="grids">
+            
+            
 
-					<div id="graph4"></div>
-					<div >
-						<table id="table_id_example1" class="display">
-										<thead>
-											 <tr>
-													 <th>会员卡号</th>
-													 <th>姓名</th> 
-													 <th>性别</th> 
-                                                     <th>年龄</th>
-                                                     <th>开卡日期</th> 
-													 <th>剩余时间</th> 
-                                                     <th>剩余私教课时数</th>
-													 <th>专属私教</th>
-													 <th>删除</th>
-											 </tr> 
-									 </thead> 
-									 <tbody> 
-											 <tr> 
-													 <td>VIP.20181201</td> 
-													 <td>张三</td> 
-													 <td>男</td>
-                                                     <td>21</td>
-                                                     <td>2018年5月1日</td> 
-													 <td>177天</td> 
-													 <td>20</td>
-													 <td>李四</td>
-													 <td><a href="#" class="btn btn-xs btn-primary btn-block bg-danger">删除</a></td>
-											 </tr> 
-											 <tr> 
-                                                <td>VIP.20181201</td> 
-                                                <td>张三</td> 
-                                                <td>男</td>
-                                                <td>21</td>
-                                                <td>2018年5月1日</td> 
-                                                <td>177天</td> 
-                                                <td>20</td>
-												<td>李四</td>
-												<td><a href="#" class="btn btn-xs btn-primary btn-block bg-danger">删除</a></td>
-                                        </tr> 
-                                        <tr> 
-                                            <td>VIP.20181201</td> 
-                                            <td>张三</td> 
-                                            <td>男</td>
-                                            <td>21</td>
-                                            <td>2018年5月1日</td> 
-                                            <td>177天</td> 
-                                            <td>20</td>
-											<td>李四</td>
-											<td><a href="#" class="btn btn-xs btn-primary btn-block bg-danger">删除</a></td>
-                                    </tr> 
-                                    <tr> 
-                                        <td>VIP.20181201</td> 
-                                        <td>张三</td> 
-                                        <td>男</td>
-                                        <td>21</td>
-                                        <td>2018年5月1日</td> 
-                                        <td>177天</td> 
-                                        <td>20</td>
-										<td>李四</td>
-										<td><a href="#" class="btn btn-xs btn-primary btn-block bg-danger">删除</a></td>
-                                </tr> 
-                                <tr> 
-                                    <td>VIP.20181201</td> 
-                                    <td>张三</td> 
-                                    <td>男</td>
-                                    <td>21</td>
-                                    <td>2018年5月1日</td> 
-                                    <td>177天</td> 
-                                    <td>20</td>
-									<td>李四</td>
-									<td><a href="#" class="btn btn-xs btn-primary btn-block bg-danger">删除</a></td>
-                            </tr> 
-                            <tr> 
-                                <td>VIP.20181201</td> 
-                                <td>张三</td> 
-                                <td>男</td>
-                                <td>21</td>
-                                <td>2018年5月1日</td> 
-                                <td>177天</td> 
-                                <td>20</td>
-								<td>李四</td>
-								<td><a href="#" class="btn btn-xs btn-primary btn-block bg-danger">删除</a></td>
-                        </tr> 
-									 </tbody> 
-							 </table>
-							 <script>
-											 $(document).ready(function () {
-													 $('#table_id_example1').DataTable();
-											 });
-									 </script>
-			 </div>
-        </div>
+            <div class="panel panel-widget forms-panel">
+                    <div class="progressbar-heading general-heading">
+                        <h4>客户信息修改  :</h4>
+                    </div>
+                    <div class="forms">
+                            <h3 class="title1"></h3>
+                            <div class="form-three widget-shadow">
+                                <form class="form-horizontal" action="/customersManagement-customerModify-check" method="post">
+                                    <div class="form-group">
+										<% customers customer = (customers)request.getAttribute("customer");%>
+                                        <label for="focusedinput" class="col-sm-2 control-label">会员卡号</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" class="form-control" name="VIPNumber" id="VIPNumber" value="<% out.print(customer.getVIPNumber()); %>" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="focusedinput" class="col-sm-2 control-label">姓名</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="name" id="name" value="<% out.print(customer.getRealName()); %>" >
+                                            </div>
+                                        </div>
+                                    <div class="form-group">
+                                        <label for="focusedinput" class="col-sm-2 control-label">性别</label>
+										<div class="col-sm-8"><select name="sex" id="sex" class="form-control1">
+											<option <% if(customer.getSex().equals('男')) out.print("selected"); %> value="男">男</option>
+											<option <% if(customer.getSex().equals('女')) out.print("selected"); %> value="女">女</option>
+										</select></div>
+                                    </div>
+                                    <div class="form-group">
+                                            <label for="focusedinput" class="col-sm-2 control-label">出生日期</label>
+                                            <div class="col-sm-8">
+                                                <input type="date" class="form-control" name="birthday" id="birthday" value="<% out.print(customer.getBirthday());%>">
+                                            </div>
+                                        </div>
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label">电话号码</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" name="telephone" id="telephone" value="<% out.print(customer.getTelephone()); %>" >
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label">电子邮箱</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" name="email" id="email" value="<% out.print(customer.getEmail()); %>" >
+										</div>
+									</div>
+                                        <div class="form-group">
+                                                <label for="selector1" class="col-sm-2 control-label">会员身份</label>
+                                                <div class="col-sm-8"><select name="identity" id="identity" class="form-control1">
+                                                    <option <% if(customer.getIdentity().equals("公司职员")) out.print("selected"); %> value="公司职员">公司职员</option>
+                                                    <option <% if(customer.getIdentity().equals("社会大众")) out.print("selected"); %> value="社会大众">社会大众</option>
+                                                </select></div>
+                                            </div>
+                                    <div class="form-group">
+                                        <label for="selector1" class="col-sm-2 control-label">专属私教</label>
+                                        <div class="col-sm-8"><select name="teacher" id="teacher" class="form-control1">
+											<% List<employees> teachers = (List<employees>)request.getAttribute("teachers"); %>
+											<% for(int i=0;i<teachers.size();i++) {%>
+											<option <% if(teachers.get(i).getUserNum()==customer.getTeacherNumber()) out.print("selected"); %> value="<% out.print(teachers.get(i).getUserNum()); %>"><% out.print(teachers.get(i).getRealName()); %></option>
+											<% } %>
+                                        </select></div>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <button type="submit" class="btn btn-default w3ls-button">提交修改</button>
+                                    </div>
+                                </form>
+                            </div>
+                    </div>
+                </div>
+							
 
 				</div>
 				<!-- //area-chart -->
@@ -238,6 +218,10 @@
 			
 			<div class="clearfix"> </div>
 		</div>
+		
+		
+
+
 
 		</div>
 		<!-- footer -->
