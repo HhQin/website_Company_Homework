@@ -1,6 +1,8 @@
 package com.company.website.mapper;
 
 import com.company.website.entity.employees;
+import com.sun.org.apache.xpath.internal.operations.Bool;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -27,5 +29,8 @@ public interface EmployeesMapper {
 
     @Update("update employees set Status=#{Status} where UserNum=#{UserNum}")
     Boolean updateStatusByUserNum(@Param(value = "Status")String Status,@Param(value = "UserNum")String UserNum);
+
+    @Insert("insert into employees (UserNum,LogName,Password,RealName,Sex,Birthday,Job,Status,Telephone,Email) values (#{UserNum},#{LogName},#{Password},#{RealName},#{Sex},#{Birthday},#{Job},#{Status},#{Telephone},#{Email})")
+    Boolean createNewEmployee(@Param(value = "UserNum")String UserNum,@Param(value = "LogName")String LogName, @Param(value = "Password")String Password,@Param(value = "RealName")String RealName, @Param(value = "Sex")String Sex,@Param(value = "Birthday")String Birthday, @Param(value = "Job")String Job,@Param(value = "Status")String Status, @Param(value = "Telephone")String Telephone,@Param(value = "Email")String Email);
 
 }

@@ -5,7 +5,6 @@ import com.company.website.service.CustomerService;
 import com.company.website.service.EmployeesService;
 import com.company.website.service.GetIntoService;
 import com.company.website.showClasses.showCustomer;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,7 +15,6 @@ import javax.annotation.Resource;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 

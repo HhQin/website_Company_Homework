@@ -32,5 +32,10 @@ public class EmployeesServiceTest {
     public void testUpdateStatusByUserNum(){
         employeesService.updateStatusByUserNum("休息","emp.19000001");
     }
+
+    @Test
+    public void testCreatNewEmployee(){
+        employeesService.createNewEmployee("VIP.19031001","DJNMJB","001","戴江南没几把","男","1997-01-02","前台","--","18861803508","djnmjb@qq.com");
+    }
 }
 

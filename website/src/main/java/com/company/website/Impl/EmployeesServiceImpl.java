@@ -3,6 +3,7 @@ package com.company.website.Impl;
 import com.company.website.entity.employees;
 import com.company.website.mapper.EmployeesMapper;
 import com.company.website.service.EmployeesService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -42,5 +43,10 @@ public class EmployeesServiceImpl implements EmployeesService {
     @Override
     public Boolean updateStatusByUserNum(String Status,String UserNum){
         return employeesMapper.updateStatusByUserNum(Status,UserNum);
+    }
+
+    @Override
+    public Boolean createNewEmployee(String UserNum,String LogName, String Password,String RealName,String Sex,String Birthday,String Job,String Status,String Telephone,String Email){
+        return employeesMapper.createNewEmployee(UserNum,LogName,Password,RealName,Sex,Birthday,Job,Status,Telephone,Email);
     }
 }

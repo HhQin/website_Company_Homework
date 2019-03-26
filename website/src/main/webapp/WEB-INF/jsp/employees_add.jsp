@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html; charset=UTF-8"  %>
 <head>
-<title>私教打卡签退——Fitness Club</title>
+<title>新增职员——Fitness Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -127,38 +127,73 @@
                 
             <div class="panel panel-widget forms-panel">
                     <div class="progressbar-heading general-heading">
-                        <h4>打卡/签退  :</h4>
+                        <h4>新增职员  :</h4>
                     </div>
                     <div class="forms">
                             <h3 class="title1"></h3>
                             <div class="form-three widget-shadow">
-                                <form class="form-horizontal" action="/teacher_sign_in_check" method="post">
-                                    <div class="form-group">
-										<% String userNum = (String) request.getAttribute("userNum"); %>
-										<% String userName = (String) request.getAttribute("userName"); %>
-										<% String userStatus = (String) request.getAttribute("userStatus"); %>
-
-										<label for="focusedinput" class="col-sm-2 control-label">工号</label>
-                                        <div class="col-sm-8">
-                                            <input type="text" value="<% out.print(userNum); %>" class="form-control" id="number" name="number" readonly>
-                                        </div>
-                                    </div>
+                                <form class="form-horizontal" action="/employeeManagement-employeeAdd-check" method="post">
                                     <div class="form-group">
                                             <label for="focusedinput" class="col-sm-2 control-label">姓名</label>
                                             <div class="col-sm-8">
-                                                <input type="text" value="<% out.print(userName); %>" class="form-control" id="name" readonly>
+                                                <input type="text" class="form-control" id="name" name="name">
                                             </div>
                                         </div>
-                                    
-                                        <div class="form-group">
-											<label for="selector1" class="col-sm-2 control-label">工作状态</label>
-											<div class="col-sm-8">
-												<input type="text" value="<% out.print(userStatus); %>" class="form-control" id="status" readonly>
-											</div>
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label">登录名</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" placeholder="建议设置姓名+生日以防止登陆名冲突，如djn0102" id="logname" name="logname">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label">密码</label>
+										<div class="col-sm-8">
+											<input type="password" class="form-control" id="psw1" name="psw1">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label">请再次输入密码</label>
+										<div class="col-sm-8">
+											<input type="password" class="form-control" id="psw2" name="psw2">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label">性别</label>
+										<div class="col-sm-8"><select name="sex" id="sex" class="form-control1">
+											<option value="男">男</option>
+											<option value="女">女</option>
+										</select></div>
+									</div>
+                                    <div class="form-group">
+                                            <label for="focusedinput" class="col-sm-2 control-label">生日</label>
+                                            <div class="col-sm-8">
+                                                <input type="date" class="form-control" name="birthday" id="birthday">
                                             </div>
+                                        </div>
+                                        <div class="form-group">
+                                                <label for="selector1" class="col-sm-2 control-label">工种</label>
+                                                <div class="col-sm-8"><select name="job" id="job" class="form-control1">
+                                                    <option value="前台">前台</option>
+                                                    <option value="私教">私教</option>
+                                                    <option value="俱乐部经理">俱乐部经理</option>
+                                                    <option value="系统管理员">系统管理员</option>
+                                                </select></div>
+                                            </div>
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label">电话号码</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" id="telephone" name="telephone">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label">电子邮箱</label>
+										<div class="col-sm-8">
+											<input type="text" class="form-control" id="email" name="email">
+										</div>
+									</div>
                                     
                                     <div style="text-align: center;">
-                                        <button type="submit" class="btn btn-default w3ls-button">点击打卡/签退</button>
+                                        <button type="submit" onclick="if(document.getElementById('psw1').value!=document.getElementById('psw2').value)alert('请检查密码输入是否一致');" class="btn btn-default w3ls-button">点击新增职员</button>
                                     </div>
                                 </form>
                             </div>
