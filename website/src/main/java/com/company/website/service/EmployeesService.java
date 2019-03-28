@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 public interface EmployeesService {
+    List<employees> queryAllEmployees();
     String queryNameByNumber(String UserNum);
     String queryPassword(String LogName);
     Integer queryBusyTeacherNumber();
@@ -13,6 +14,6 @@ public interface EmployeesService {
     List<employees> queryEmployeeByLogName(String LogName);
     Boolean updateStatusByUserNum(String Status,String UserNum);
     Boolean createNewEmployee(String UserNum,String LogName, String Password,String RealName,String Sex,String Birthday,String Job,String Status,String Telephone,String Email);
-
+    Boolean deleteEmployeeByNumber(String UserNum);
 
 }

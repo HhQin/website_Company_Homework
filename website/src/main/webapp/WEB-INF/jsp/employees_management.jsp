@@ -1,11 +1,12 @@
 <%@ page import="com.company.website.entity.items" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.company.website.entity.employees" %>
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html; charset=UTF-8"  %>
 <head>
-<title>器材信息管理——Fitness Club</title>
+<title>职员信息管理——Fitness Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -129,7 +130,7 @@
 				<!-- area-chart -->
 				<div class="area-grids">
 					<div class="area-grids-heading">
-                        <h3>器材信息管理<i><small><a id="download">(点击导出)</a></small></i></h3>
+                        <h3>职员信息管理<i><small><a id="download">(点击导出)</a></small></i></h3>
                     </div>
 
 					<div id="graph4"></div>
@@ -137,27 +138,27 @@
 						<table id="table_id_example1" class="display">
 										<thead>
 											 <tr>
-													 <th>设备编号</th>
-													 <th>设备名</th>
-													 <th>设备状态</th>
+													 <th>编 号</th>
+													 <th>姓 名</th>
+													 <th>性 别</th>
 												     <th>修 改</th>
 												     <th>删 除</th>
 											 </tr> 
 									 </thead> 
 									 <tbody>
-									 <% List<items> resultitems = (List<items>)request.getAttribute("resultitems"); %>
-									 <% for(int i=0;i<resultitems.size();i++) {%>
+									 <% List<employees> resultEmployees = (List<employees>)request.getAttribute("resultEmployees"); %>
+									 <% for(int i=0;i<resultEmployees.size();i++) {%>
 									 <tr>
-										 <td><% out.print(resultitems.get(i).getItemNumber()); %></td>
-										 <td><% out.print(resultitems.get(i).getItemName()); %></td>
-										 <td><% out.print(resultitems.get(i).getItemStatus()); %></td>
+										 <td><% out.print(resultEmployees.get(i).getUserNum()); %></td>
+										 <td><% out.print(resultEmployees.get(i).getRealName()); %></td>
+										 <td><% out.print(resultEmployees.get(i).getSex()); %></td>
 										 <td>
-											 <button type="button" onclick="window.location.href='/itemManagement-itemModify-<% out.print(resultitems.get(i).getItemNumber()); %>'" class="btn bg-info light text-white fw600 text-center btn-sm btn-primary btn-block">点击修改</button>
+											 <button type="button" onclick="window.location.href='/employeesManagement-employeesModify-<% out.print(resultEmployees.get(i).getUserNum()); %>'" class="btn bg-info light text-white fw600 text-center btn-sm btn-primary btn-block">点击修改</button>
 										 </td>
 										 <td>
 											 <button type="button" onclick=" var truthBeTold = window.confirm('请确认是否删除');
 													 if (truthBeTold) {
-													 window.location.href='/itemManagement-itemDeleteCheck-<% out.print(resultitems.get(i).getItemNumber()); %>';
+													 window.location.href='/employeesManagement-employeesDeleteCheck-<% out.print(resultEmployees.get(i).getUserNum()); %>';
 													 } else
 													 return false;"
 													 class="btn bg-danger dark text-white fw600 text-center btn-sm btn-primary btn-block">点击删除</button>
@@ -199,7 +200,7 @@
         // 利用URL.createObjectURL()方法为a元素生成blob URL
         a.href = URL.createObjectURL(blob);
         // 设置文件名
-        a.download = "器材信息表.xls";
+        a.download = "职员信息表.xls";
     </script>
 </body>
 </html>

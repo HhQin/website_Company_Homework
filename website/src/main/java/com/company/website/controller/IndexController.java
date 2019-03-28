@@ -13,9 +13,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Enumeration;
 import java.util.List;
 
 /**
@@ -115,5 +114,20 @@ public class IndexController {
     @RequestMapping("/auth_failed")
     public String authFailed(){
         return "auth_failed";
+    }
+
+    @RequestMapping("/logout")
+    public String logout(HttpServletRequest request,HttpServletResponse response) throws Exception{
+        try{
+            Enumeration em = request.getSession().getAttributeNames();
+            while(em.hasMoreElements()){
+                request.getSession().removeAttribute(em.nextElement().toString());
+            }
+            response.sendRedirect("/login");
+            return "login";
+        }catch (Exception e){
+            return "operate_failed";
+        }
+
     }
 }

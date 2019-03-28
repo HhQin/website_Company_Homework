@@ -1,5 +1,6 @@
 package com.company.website.mybatis;
 
+import com.company.website.entity.employees;
 import com.company.website.service.EmployeesService;
 
 import org.junit.Test;
@@ -37,5 +38,7 @@ public class EmployeesServiceTest {
     public void testCreatNewEmployee(){
         employeesService.createNewEmployee("VIP.19031001","DJNMJB","001","戴江南没几把","男","1997-01-02","前台","--","18861803508","djnmjb@qq.com");
     }
+
+
 }
 

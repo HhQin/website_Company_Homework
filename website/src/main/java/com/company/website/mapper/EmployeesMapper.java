@@ -2,15 +2,15 @@ package com.company.website.mapper;
 
 import com.company.website.entity.employees;
 import com.sun.org.apache.xpath.internal.operations.Bool;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 
 public interface EmployeesMapper {
+
+    @Select("select * from employees")
+    List<employees> queryAllEmployees();
 
     @Select("select RealName from employees where UserNum=#{UserNum}")
     String queryNameByNumber(@Param(value = "UserNum")String UserNum);
@@ -33,4 +33,6 @@ public interface EmployeesMapper {
     @Insert("insert into employees (UserNum,LogName,Password,RealName,Sex,Birthday,Job,Status,Telephone,Email) values (#{UserNum},#{LogName},#{Password},#{RealName},#{Sex},#{Birthday},#{Job},#{Status},#{Telephone},#{Email})")
     Boolean createNewEmployee(@Param(value = "UserNum")String UserNum,@Param(value = "LogName")String LogName, @Param(value = "Password")String Password,@Param(value = "RealName")String RealName, @Param(value = "Sex")String Sex,@Param(value = "Birthday")String Birthday, @Param(value = "Job")String Job,@Param(value = "Status")String Status, @Param(value = "Telephone")String Telephone,@Param(value = "Email")String Email);
 
+    @Delete("delete from employees where UserNum = #{UserNum}")
+    Boolean deleteEmployeeByNumber(@Param(value = "UserNum")String UserNum);
 }

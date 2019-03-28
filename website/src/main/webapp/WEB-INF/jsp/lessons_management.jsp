@@ -159,7 +159,12 @@
 											 <button type="button" onclick="window.location.href='/lessonsManagement-lessonModify-<% out.print(resultlessons.get(i).getLessonNum()); %>'" class="btn bg-info light text-white fw600 text-center btn-sm btn-primary btn-block">点击修改</button>
 										 </td>
 										 <td>
-											 <button type="button" onclick="window.location.href='/lessonsManagement-lessonDeleteCheck-<% out.print(resultlessons.get(i).getLessonNum()); %>'" class="btn bg-danger dark text-white fw600 text-center btn-sm btn-primary btn-block">点击删除</button>
+											 <button type="button" onclick=" var truthBeTold = window.confirm('请确认是否删除');
+													 if (truthBeTold) {
+													 window.location.href='/lessonsManagement-lessonDeleteCheck-<% out.print(resultlessons.get(i).getLessonNum()); %>';
+													 } else
+													 return false;"
+													 class="btn bg-danger dark text-white fw600 text-center btn-sm btn-primary btn-block">点击删除</button>
 										 </td>
 									 </tr>
 									 <% } %>

@@ -1,14 +1,17 @@
 package com.company.website.controller;
 
+import com.company.website.entity.employees;
 import com.company.website.service.EmployeesService;
-import com.company.website.service.LessonsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/")
@@ -39,5 +42,21 @@ public class EmployeeController {
         }
     }
 
+    @RequestMapping("/employeeManagement")
+    public String employeeManagement(Model m){
+        List<employees> resultEmployees = employeesService.queryAllEmployees();
+        m.addAttribute("resultEmployees",resultEmployees);
+        return "employees_management";
+    }
+
+    @RequestMapping("/employeesManagement-employeesDeleteCheck-{employeeNumber}")
+    public String employeesDeleteCheck(@PathVariable String employeeNumber){
+        try{
+            employeesService.deleteEmployeeByNumber(employeeNumber);
+            return "operate_success";
+        }catch (Exception e){
+            return "operate_failed";
+        }
+    }
 
 }

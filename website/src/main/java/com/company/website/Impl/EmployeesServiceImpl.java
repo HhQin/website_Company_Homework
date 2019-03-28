@@ -16,6 +16,11 @@ public class EmployeesServiceImpl implements EmployeesService {
     private EmployeesMapper employeesMapper;
 
     @Override
+    public List<employees> queryAllEmployees(){
+        return employeesMapper.queryAllEmployees();
+    }
+
+    @Override
     public String queryNameByNumber(String UserNum){
         return employeesMapper.queryNameByNumber(UserNum);
     }
@@ -48,5 +53,10 @@ public class EmployeesServiceImpl implements EmployeesService {
     @Override
     public Boolean createNewEmployee(String UserNum,String LogName, String Password,String RealName,String Sex,String Birthday,String Job,String Status,String Telephone,String Email){
         return employeesMapper.createNewEmployee(UserNum,LogName,Password,RealName,Sex,Birthday,Job,Status,Telephone,Email);
+    }
+
+    @Override
+    public Boolean deleteEmployeeByNumber(String UserNum){
+        return employeesMapper.deleteEmployeeByNumber(UserNum);
     }
 }
