@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface EmployeesService {
     List<employees> queryAllEmployees();
+    employees queryEmployeeByNumber(String UserNum);
+    Boolean updateEmployeeByNumber(String Telephone,String Password,String Sex,String Email,String UserNum);
     String queryNameByNumber(String UserNum);
     String queryPassword(String LogName);
     Integer queryBusyTeacherNumber();

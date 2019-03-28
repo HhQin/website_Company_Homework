@@ -21,6 +21,16 @@ public class EmployeesServiceImpl implements EmployeesService {
     }
 
     @Override
+    public employees queryEmployeeByNumber(String UserNum){
+        return employeesMapper.queryEmployeeByNumber(UserNum);
+    }
+
+    @Override
+    public Boolean updateEmployeeByNumber(String Telephone,String Password,String Sex,String Email,String UserNum){
+        return employeesMapper.updateEmployeeByNumber(Telephone,Password,Sex,Email,UserNum);
+    }
+
+    @Override
     public String queryNameByNumber(String UserNum){
         return employeesMapper.queryNameByNumber(UserNum);
     }

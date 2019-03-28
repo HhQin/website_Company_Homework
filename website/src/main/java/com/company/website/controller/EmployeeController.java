@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -53,6 +55,28 @@ public class EmployeeController {
     public String employeesDeleteCheck(@PathVariable String employeeNumber){
         try{
             employeesService.deleteEmployeeByNumber(employeeNumber);
+            return "operate_success";
+        }catch (Exception e){
+            return "operate_failed";
+        }
+    }
+
+    @RequestMapping("/employeesManagement-employeesModify-{employeeNumber}")
+    public String employeesModify(@PathVariable String employeeNumber,Model m, HttpServletRequest request){
+        try{
+            m.addAttribute("resultEmployee",employeesService.queryEmployeeByNumber(employeeNumber));
+            HttpSession sessoin=request.getSession();
+            m.addAttribute("job",sessoin.getAttribute("job"));
+            return "employee_modify";
+        }catch (Exception e){
+            return "operate_failed";
+        }
+    }
+
+    @RequestMapping(value = "/employeesManagement-employeesModifyCheck",method = RequestMethod.POST)
+    public String employeesModifyCheck(String userNumber,String sex,String password1,String telephone,String email){
+        try{
+            employeesService.updateEmployeeByNumber(telephone,password1,sex,email,userNumber);
             return "operate_success";
         }catch (Exception e){
             return "operate_failed";

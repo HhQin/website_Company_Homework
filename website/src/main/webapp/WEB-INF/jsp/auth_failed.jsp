@@ -43,46 +43,46 @@
 </head>
 <body class="dashboard-page">
 
-	<nav class="main-menu">
-		<ul>
-			<li>
-				<a href=""><i class="fa fa-home nav_icon"></i><span class="nav-text">Fitness Club主页</span></a>
-			</li>
-			<li><a href="/CustomerManagement"><i class="fa fa-cogs"></i><span class="nav-text">客户信息管理</span><i class="icon-angle-right"></i><i class="icon-angle-down"></i></a></li>
-			<li class="has-subnav">
-				<a href="javascript:;"><i class="fa fa-check-square-o nav_icon"></i><span class="nav-text">会员卡业务办理</span><i class="icon-angle-right"></i><i class="icon-angle-down"></i></a>
-				<ul>
-					<li><a class="subnav-text" href="/VIPManagement_VIPAdd">新客户开卡</a></li>
-					<li><a class="subnav-text" href="/VIPManagement_Old_VIP">老客户续卡</a></li>
-				</ul>
-			</li>
-			<li class="has-subnav">
-				<a href="javascript:;"><i class="fa fa-file-text-o nav_icon"></i><span class="nav-text">职员信息管理</span><i class="icon-angle-right"></i><i class="icon-angle-down"></i></a>
-				<ul>
-					<li><a class="subnav-text" href="/employeeManagement-employeeAdd">新增职员</a></li>
-					<li><a class="subnav-text" href="/employeeManagement">职员信息管理</a></li>
-				</ul>
-			</li>
-			<li><a href="/get_into_before"><i class="fa fa-bar-chart nav_icon"></i><span class="nav-text">客户入场登记</span></a></li>
-			<li><a href="/getIntoQuery"><i class="icon-font nav-icon"></i><span class="nav-text">健身信息查询</span></a></li>
-			<li><a href="/studentsInfoQuery"><i class="icon-table nav-icon"></i><span class="nav-text">学员信息查看</span></a></li>
-			<li><a href="/teachingLessonsQuery"><i class="fa fa-map-marker" aria-hidden="true"></i><span class="nav-text">授课信息查看</span></a></li>
-			<li><a href="/teacher_sign_in"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="nav-text">打卡签退</span></a></li>
-			<li class="has-subnav"><a href="javascript:;"><i class="fa fa-list-ul" aria-hidden="true"></i><span class="nav-text">操课安排管理</span><i class="icon-angle-right"></i><i class="icon-angle-down"></i></a>
-				<ul>
-					<li><a class="subnav-text" href="/lessonManagement-lessonAdd">操课信息发布</a></li>
-					<li><a class="subnav-text" href="/lessonManagement">操课信息管理</a></li>
-				</ul>
-			</li>
-			<li class="has-subnav"><a href="javascript:;"><i class="fa fa-cogs" aria-hidden="true"></i><span class="nav-text">健身设备管理</span><i class="icon-angle-right"></i><i class="icon-angle-down"></i></a>
-				<ul>
-					<li><a class="subnav-text" href="/itemManagement-itemAdd">健身设备新增</a></li>
-					<li><a class="subnav-text" href="/itemManagement">健身设备删除</a></li>
-				</ul>
-			</li>
-		</ul>
-		<ul class="logout"><li><a href="/logout"><i class="icon-off nav-icon"></i><span class="nav-text">注销</span></a></li></ul>
-	</nav>
+<nav class="main-menu">
+	<ul>
+		<li>
+			<a href="/homepage"><i class="fa fa-home nav_icon"></i><span class="nav-text">Fitness Club主页</span></a>
+		</li>
+		<li><a href="/CustomerManagement"><i class="fa fa-cogs"></i><span class="nav-text">客户信息管理</span></a></li>
+		<li class="has-subnav">
+			<a href="javascript:;"><i class="fa fa-check-square-o nav_icon"></i><span class="nav-text">会员卡业务办理</span><i class="icon-angle-right"></i><i class="icon-angle-down"></i></a>
+			<ul>
+				<li><a class="subnav-text" href="/VIPManagement_VIPAdd">新客户开卡</a></li>
+				<li><a class="subnav-text" href="/VIPManagement_Old_VIP">老客户续卡</a></li>
+			</ul>
+		</li>
+		<li class="has-subnav">
+			<a href="javascript:;"><i class="fa fa-file-text-o nav_icon"></i><span class="nav-text">职员信息管理</span><i class="icon-angle-right"></i><i class="icon-angle-down"></i></a>
+			<ul>
+				<li><a class="subnav-text" href="/employeeManagement-employeeAdd">新增职员</a></li>
+				<li><a class="subnav-text" href="/employeeManagement">职员信息管理</a></li>
+			</ul>
+		</li>
+		<li><a href="/get_into_before"><i class="fa fa-bar-chart nav_icon"></i><span class="nav-text">客户入场登记</span></a></li>
+		<li><a href="/getIntoQuery"><i class="icon-font nav-icon"></i><span class="nav-text">健身信息查询</span></a></li>
+		<li><a href="/studentsInfoQuery"><i class="icon-table nav-icon"></i><span class="nav-text">学员信息查看</span></a></li>
+		<li><a href="/teachingLessonsQuery"><i class="fa fa-map-marker" aria-hidden="true"></i><span class="nav-text">授课信息查看</span></a></li>
+		<li><a href="/teacher_sign_in"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i><span class="nav-text">打卡签退</span></a></li>
+		<li class="has-subnav"><a href="javascript:;"><i class="fa fa-list-ul" aria-hidden="true"></i><span class="nav-text">操课安排管理</span><i class="icon-angle-right"></i><i class="icon-angle-down"></i></a>
+			<ul>
+				<li><a class="subnav-text" href="/lessonManagement-lessonAdd">操课信息发布</a></li>
+				<li><a class="subnav-text" href="/lessonManagement">操课信息管理</a></li>
+			</ul>
+		</li>
+		<li class="has-subnav"><a href="javascript:;"><i class="fa fa-cogs" aria-hidden="true"></i><span class="nav-text">健身设备管理</span><i class="icon-angle-right"></i><i class="icon-angle-down"></i></a>
+			<ul>
+				<li><a class="subnav-text" href="/itemManagement-itemAdd">健身设备新增</a></li>
+				<li><a class="subnav-text" href="/itemManagement">健身设备管理</a></li>
+			</ul>
+		</li>
+	</ul>
+	<ul class="logout"><li><a href="/logout"><i class="icon-off nav-icon"></i><span class="nav-text">注销</span></a></li></ul>
+</nav>
 	<section class="wrapper scrollable">
 		<nav class="user-menu">
 			<a href="javascript:;" class="main-menu-access">

@@ -48,9 +48,9 @@
 <nav class="main-menu">
 	<ul>
 		<li>
-			<a href=""><i class="fa fa-home nav_icon"></i><span class="nav-text">Fitness Club主页</span></a>
+			<a href="/homepage"><i class="fa fa-home nav_icon"></i><span class="nav-text">Fitness Club主页</span></a>
 		</li>
-		<li><a href="/CustomerManagement"><i class="fa fa-cogs"></i><span class="nav-text">客户信息管理</span><i class="icon-angle-right"></i><i class="icon-angle-down"></i></a></li>
+		<li><a href="/CustomerManagement"><i class="fa fa-cogs"></i><span class="nav-text">客户信息管理</span></a></li>
 		<li class="has-subnav">
 			<a href="javascript:;"><i class="fa fa-check-square-o nav_icon"></i><span class="nav-text">会员卡业务办理</span><i class="icon-angle-right"></i><i class="icon-angle-down"></i></a>
 			<ul>
@@ -79,7 +79,7 @@
 		<li class="has-subnav"><a href="javascript:;"><i class="fa fa-cogs" aria-hidden="true"></i><span class="nav-text">健身设备管理</span><i class="icon-angle-right"></i><i class="icon-angle-down"></i></a>
 			<ul>
 				<li><a class="subnav-text" href="/itemManagement-itemAdd">健身设备新增</a></li>
-				<li><a class="subnav-text" href="/itemManagement">健身设备删除</a></li>
+				<li><a class="subnav-text" href="/itemManagement">健身设备管理</a></li>
 			</ul>
 		</li>
 	</ul>

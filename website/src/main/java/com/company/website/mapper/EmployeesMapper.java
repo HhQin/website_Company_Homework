@@ -12,6 +12,12 @@ public interface EmployeesMapper {
     @Select("select * from employees")
     List<employees> queryAllEmployees();
 
+    @Select("select * from employees where UserNum=#{UserNum}")
+    employees queryEmployeeByNumber(@Param(value = "UserNum")String UserNum);
+
+    @Update("update employees set Telephone=#{Telephone},Password=#{Password},Sex=#{Sex},Email=#{Email} where UserNum=#{UserNum}")
+    Boolean updateEmployeeByNumber(@Param(value = "Telephone")String Telephone,@Param(value = "Password")String Password,@Param(value = "Sex")String Sex,@Param(value = "Email")String Email,@Param(value = "UserNum")String UserNum);
+
     @Select("select RealName from employees where UserNum=#{UserNum}")
     String queryNameByNumber(@Param(value = "UserNum")String UserNum);
 

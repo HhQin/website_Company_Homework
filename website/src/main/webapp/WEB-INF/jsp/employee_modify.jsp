@@ -1,11 +1,12 @@
-<%@ page import="com.company.website.entity.customers" %>
+<%@ page import="com.company.website.entity.items" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.company.website.entity.employees" %>
 <!DOCTYPE html>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html; charset=UTF-8"  %>
 <head>
-<title>客户续卡——Fitness Club</title>
+<title>职员信息修改——Fitness Club</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="" />
@@ -124,52 +125,79 @@
 			<div class="clearfix"> </div>
 		</section>
 
-		<div class="agile-grids" >
-			<div class="col-md-4 charts-right" style="width:100%">
-				<!-- area-chart -->
-				<div class="area-grids">
-					<div class="area-grids-heading">
-                        <h3>客户续卡</h3>                        
+		<div class="grids">
+            
+                
+            <div class="panel panel-widget forms-panel">
+                    <div class="progressbar-heading general-heading">
+                        <h4>职员信息修改  :</h4>
                     </div>
+                    <div class="forms">
+                            <h3 class="title1"></h3>
+                            <div class="form-three widget-shadow">
+								<% employees employee = (employees) request.getAttribute("resultEmployee"); %>
+								<% String job = (String) request.getAttribute("job"); %>
+                                <form class="form-horizontal" action="/employeesManagement-employeesModifyCheck" method="post">
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label" >编号</label>
+										<div class="col-sm-8">
+											<input value=<% out.print(employee.getUserNum()); %> type="text" class="form-control" id="userNumber" name="userNumber" readonly>
+										</div>
+									</div>
+                                    <div class="form-group">
+                                            <label for="focusedinput" class="col-sm-2 control-label" >登陆名</label>
+                                            <div class="col-sm-8">
+                                                <input value=<% out.print(employee.getLogName()); %> type="text" class="form-control" id="logName" name="logName" readonly>
+                                            </div>
+                                        </div>
+                                    <div class="form-group">
+                                        <label for="focusedinput" class="col-sm-2 control-label">性别</label>
+										<div class="col-sm-8"><select name="sex" id="sex" class="form-control1">
+											<option <% if(employee.getSex().equals("男")) out.print("selected"); %> >男</option>
+											<option <% if(employee.getSex().equals("女")) out.print("selected"); %> >女</option>
+										</select></div>
+                                    </div>
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label" >请输入密码</label>
+										<div class="col-sm-8">
+											<input value=<% out.print(employee.getPassword()); %> type="password" class="form-control" id="password1" name="password1" <% if(job.equals("系统管理员")==false)out.print("readonly"); %>>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label" >请确认密码</label>
+										<div class="col-sm-8">
+											<input value=<% out.print(employee.getPassword()); %> type="password" class="form-control" id="password2" name="password2" <% if(job.equals("系统管理员")==false)out.print("readonly"); %>>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label" >电话号码</label>
+										<div class="col-sm-8">
+											<input value=<% out.print(employee.getTelephone()); %> type="text" class="form-control" id="telephone" name="telephone" >
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="focusedinput" class="col-sm-2 control-label" >电子邮箱</label>
+										<div class="col-sm-8">
+											<input value=<% out.print(employee.getEmail()); %> type="text" class="form-control" id="email" name="email">
+										</div>
+									</div>
 
-					<div id="graph4"></div>
-					<div >
-                            <table id="table_id_example1" class="display">
-                                    <thead>
-                                         <tr>
-                                                 <th>会员卡号</th>
-                                                 <th>姓名</th>                                                 
-                                                 <th>续卡</th>
-                                         </tr> 
-                                 </thead> 
-                                 <tbody> 
+                                    
+                                    <div style="text-align: center;">
+                                        <button type="submit" class="btn btn-default w3ls-button" onclick="if(document.getElementById('password1').value!=document.getElementById('password2').value)alert('请检查密码输入是否一致');">点击修改职员信息</button>
+                                    </div>
+                                </form>
 
-										 <% List<customers> VIPResult = (List<customers>)request.getAttribute("VIPResult"); %>
-										 <% for(int i=0;i<VIPResult.size();i++) {%>
-										 <tr>
-											 <td><% out.print(VIPResult.get(i).getVIPNumber()); %></td>
-											 <td><% out.print(VIPResult.get(i).getRealName()); %></td>
-											 <td>
-												 <button type="button" onclick="window.location.href='/VIPManagement_Old_VIP_<% out.print(VIPResult.get(i).getVIPNumber()); %>'" class="btn bg-info light text-white fw600 text-center btn-sm btn-primary btn-block">点击续卡</button>
-											 </td>
-										 </tr>
-										 <% } %>
-                                 </tbody> 
-                         </table>
-							 <script>
-											 $(document).ready(function () {
-													 $('#table_id_example1').DataTable();
-											 });
-									 </script>
-			 </div>
-        </div>
-
-				</div>
-				<!-- //area-chart -->
-			</div>
+                            </div>
+                    </div>
+                </div>
 			
 			<div class="clearfix"> </div>
 		</div>
+		
+		
+
+
 
 		</div>
 		<!-- footer -->

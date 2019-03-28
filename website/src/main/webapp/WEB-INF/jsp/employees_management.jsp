@@ -1,4 +1,3 @@
-<%@ page import="com.company.website.entity.items" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.company.website.entity.employees" %>
 <!DOCTYPE html>
@@ -49,9 +48,9 @@
 <nav class="main-menu">
 	<ul>
 		<li>
-			<a href=""><i class="fa fa-home nav_icon"></i><span class="nav-text">Fitness Club主页</span></a>
+			<a href="/homepage"><i class="fa fa-home nav_icon"></i><span class="nav-text">Fitness Club主页</span></a>
 		</li>
-		<li><a href="/CustomerManagement"><i class="fa fa-cogs"></i><span class="nav-text">客户信息管理</span><i class="icon-angle-right"></i><i class="icon-angle-down"></i></a></li>
+		<li><a href="/CustomerManagement"><i class="fa fa-cogs"></i><span class="nav-text">客户信息管理</span></a></li>
 		<li class="has-subnav">
 			<a href="javascript:;"><i class="fa fa-check-square-o nav_icon"></i><span class="nav-text">会员卡业务办理</span><i class="icon-angle-right"></i><i class="icon-angle-down"></i></a>
 			<ul>
@@ -80,7 +79,7 @@
 		<li class="has-subnav"><a href="javascript:;"><i class="fa fa-cogs" aria-hidden="true"></i><span class="nav-text">健身设备管理</span><i class="icon-angle-right"></i><i class="icon-angle-down"></i></a>
 			<ul>
 				<li><a class="subnav-text" href="/itemManagement-itemAdd">健身设备新增</a></li>
-				<li><a class="subnav-text" href="/itemManagement">健身设备删除</a></li>
+				<li><a class="subnav-text" href="/itemManagement">健身设备管理</a></li>
 			</ul>
 		</li>
 	</ul>
@@ -141,6 +140,8 @@
 													 <th>编 号</th>
 													 <th>姓 名</th>
 													 <th>性 别</th>
+                                                     <th>电话号码</th>
+                                                     <th>电子邮箱</th>
 												     <th>修 改</th>
 												     <th>删 除</th>
 											 </tr> 
@@ -152,6 +153,8 @@
 										 <td><% out.print(resultEmployees.get(i).getUserNum()); %></td>
 										 <td><% out.print(resultEmployees.get(i).getRealName()); %></td>
 										 <td><% out.print(resultEmployees.get(i).getSex()); %></td>
+                                         <td><% out.print(resultEmployees.get(i).getTelephone()); %></td>
+                                         <td><% out.print(resultEmployees.get(i).getEmail()); %></td>
 										 <td>
 											 <button type="button" onclick="window.location.href='/employeesManagement-employeesModify-<% out.print(resultEmployees.get(i).getUserNum()); %>'" class="btn bg-info light text-white fw600 text-center btn-sm btn-primary btn-block">点击修改</button>
 										 </td>
