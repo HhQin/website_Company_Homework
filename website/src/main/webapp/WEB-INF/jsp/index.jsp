@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.company.website.showClasses.showLessons" %>
+<%@ page import="com.company.website.showClasses.showIndexGetInto" %>
 <!DOCTYPE HTML>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -158,36 +159,16 @@ $(function() {
 							   </tr> 
 						   </thead> 
 						   <tbody> 
-							   <tr> 
-								   <td>1</td> 
-								   <td>NO.10001</td> 
-								   <td>张三</td>
-								   <td>15</td>
-							   </tr> 
-							   <tr> 
-									<td>2</td> 
-									<td>NO.10002</td> 
-									<td>李四</td>
-									<td>13</td>
-								</tr> 
-								<tr> 
-								   <td>3</td> 
-								   <td>NO.10003</td> 
-								   <td>王五</td>
-								   <td>12</td>
-							   </tr> 
-							   <tr> 
-									<td>4</td> 
-									<td>NO.10004</td> 
-									<td>赵六</td>
-									<td>11</td>
-								</tr> 
-								<tr> 
-								   <td>5</td> 
-								   <td>NO.10005</td> 
-								   <td>方七</td>
-								   <td>11</td>
-							   </tr>  
+
+							   <% List<showIndexGetInto> resultGetIntoRank = (List<showIndexGetInto>)request.getAttribute("resultGetIntoRank"); %>
+							   <%for(int i=0;i<resultGetIntoRank.size();i++) {%>
+							   <tr>
+								   <td><% out.print(i+1); %></td>
+								   <td><% out.print(resultGetIntoRank.get(i).getVIPNumber());%></td>
+								   <td><% out.print(resultGetIntoRank.get(i).getTrueName());%></td>
+								   <td><% out.print(resultGetIntoRank.get(i).getGetIntoNumber());%></td>
+							   </tr>
+							   <% } %>
 						   </tbody> 
 					   </table>
 					   <script>

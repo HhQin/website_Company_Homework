@@ -1,3 +1,7 @@
+<%@ page import="com.company.website.entity.customers" %>
+<%@ page import="com.company.website.showClasses.showCustomer" %>
+<%@ page import="com.company.website.showClasses.showGetInto" %>
+<%@ page import="java.util.List" %>
 <!DOCTYPE HTML>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -66,23 +70,20 @@ $(function() {
 		    <div class="header-top">
 			<div class="inner-top">
 		       <div class="col-md-3 top_right">
-					<ul class="f-icons">
-						<li><a href="#" class="facebook"> </a></li>
-						<li><a href="#" title="hell0" class="p"> </a></li>
-						<li><a href="#" class="twitter"> </a></li>
-						<li><a href="#" class="isto"> </a></li>
-					</ul>
+                   <ul class="f-icons">
+                       <li><a href="/login" title="hell0" class="p"> </a></li>
+                   </ul>
 
 			    </div>
 				<div class="col-md-6 logo">
 					<a href="index.html"><h1>Fitness <span>Club</span></h1></a>
 				</div>
-				    <div class="col-md-3 search">
-							<form>
-								<input type="submit" value="">
-								<input type="text" placeholder="输入会员号，查询运动信息">
-							</form>
-						</div>
+                <div class="col-md-3 search">
+                    <form action="/customerQueryResult" method="post">
+                        <input type="submit" value="">
+                        <input type="text" placeholder="输入会员号，查询运动信息" name="VIPNumber">
+                    </form>
+                </div>
 			   <div class="clearfix"></div>
 			</div>
         </div>
@@ -94,19 +95,20 @@ $(function() {
                                <th>会员号</th>
                                <th>姓名</th> 
                                <th>性别</th> 
-                               <th>年龄</th> 
+                               <th>出生日期</th>
                                <th>剩余天数</th>
                                <th>剩余私教课时数</th>
                            </tr> 
                        </thead> 
-                       <tbody> 
+                       <tbody>
+                       <% showCustomer resultCustomer = (showCustomer)request.getAttribute("resultCustomer"); %>
                            <tr> 
-                               <td>NO.10001</td> 
-							   <td>张三</td> 
-                               <td>男</td>
-                               <td>21</td> 
-							   <td>188</td> 
-                               <td>22</td>
+                               <td><% out.print(resultCustomer.getVIPNumber()); %></td>
+							   <td><% out.print(resultCustomer.getRealName()); %></td>
+                               <td><% out.print(resultCustomer.getSex()); %></td>
+                               <td><% out.print(resultCustomer.getBirthday()); %></td>
+							   <td><%out.print(resultCustomer.getLastDays());%></td>
+                               <td><% out.print(resultCustomer.getLessonNumber()); %></td>
                            </tr> 
                        </tbody> 
                    </table>
@@ -127,36 +129,19 @@ $(function() {
                         <thead>
                            <tr>
                                <th>日期</th>
-                               <th>入场时间</th> 
-                               <th>消费私教课时</th> 
+                               <th>消费私教课时</th>
+                               <th>备注</th>
                            </tr> 
                        </thead> 
-                       <tbody> 
-                           <tr> 
-                               <td>2018年11月28日</td> 
-							   <td>14：00</td> 
-                               <td>15</td>
-                           </tr> 
-                           <tr> 
-                                <td>2018年11月27日</td> 
-							    <td>15：00</td> 
-                                <td>13</td>
-                            </tr> 
-                            <tr> 
-                               <td>2018年11月26日</td> 
-							   <td>16：00</td> 
-                               <td>12</td>
-                           </tr> 
-                           <tr> 
-                                <td>2018年11月25日</td> 
-							    <td>17：00</td> 
-                                <td>11</td>
-                            </tr> 
-                            <tr> 
-                               <td>2018年11月24日</td> 
-							   <td>18：00</td> 
-                               <td>11</td>
-                           </tr>  
+                       <tbody>
+                           <% List<showGetInto> resultGetInto = (List<showGetInto>)request.getAttribute("resultGetInto"); %>
+                           <% for(showGetInto getInto : resultGetInto){ %>
+                           <tr>
+                                <td><% out.print(getInto.getGetInTime()); %></td>
+                                <td><% out.print(getInto.getLessonUse()); %></td>
+                                <td><% out.print(getInto.getNotes()); %></td>
+                           </tr>
+                           <% } %>
                        </tbody> 
                    </table>
                    <script>

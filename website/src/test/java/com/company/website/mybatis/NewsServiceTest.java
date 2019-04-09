@@ -5,6 +5,7 @@ import com.company.website.service.CustomerService;
 import com.company.website.service.EmployeesService;
 import com.company.website.service.GetIntoService;
 
+import com.company.website.showClasses.showIndexGetInto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -35,13 +36,11 @@ public class NewsServiceTest {
 
     @Test
     public void testInsertIntoCustomers(){
-        try {
-            customerService.createNewCustomer("VIP.12345678", "DAIJIBA", "妖", "1997-01-02", 1552025176000L, 1552025376000L, 21, "emp.19000001", "18861812785", "405903618@qq.com","公司家人");
-            System.out.println("\n\n\n\n\n\n\n\n\n\n成功！");
-        }catch (Exception e){
-            System.out.println("\n\n\n\n\n\n\n\n\n\n失败！");
+        List<showIndexGetInto> resultGetInto = getIntoService.queryGetIntoNumberDesc(1550026171000L,1551926171000L);
+        for(showIndexGetInto result:resultGetInto){
+            System.out.println(result.getVIPNumber()+"  "+result.getGetIntoNumber());
         }
-        }
+    }
 
 
 }

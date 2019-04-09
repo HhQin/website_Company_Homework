@@ -1,8 +1,13 @@
 package com.company.website.controller;
 
+import com.company.website.entity.GetInto;
+import com.company.website.entity.customers;
 import com.company.website.entity.employees;
 import com.company.website.entity.lessons;
 import com.company.website.service.*;
+import com.company.website.showClasses.showCustomer;
+import com.company.website.showClasses.showGetInto;
+import com.company.website.showClasses.showIndexGetInto;
 import com.company.website.showClasses.showLessons;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +18,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -51,6 +57,17 @@ public class IndexController {
             resultlessons.add(showlesson);
         }
         m.addAttribute("resultlessons",resultlessons);
+
+        Long tempBeginTime = System.currentTimeMillis()-(System.currentTimeMillis()%86400000);
+        Long tempEndTime = tempBeginTime+86400000;
+        List<showIndexGetInto> resultGetIntoRank = getIntoService.queryGetIntoNumberDesc(tempBeginTime,tempEndTime);
+        for(int i=0;i<resultGetIntoRank.size();i++){
+            resultGetIntoRank.get(i).setTrueName(customerService.queryNameByNumber(resultGetIntoRank.get(i).getVIPNumber()));
+        }
+        if(resultGetIntoRank.size()>5){
+            resultGetIntoRank.subList(0, 5);
+        }
+        m.addAttribute("resultGetIntoRank",resultGetIntoRank);
         return "index";
     }
 
@@ -102,7 +119,27 @@ public class IndexController {
 
     @RequestMapping(value = "/customerQueryResult",method = RequestMethod.POST)
     public String customerQueryResult(Model m,String VIPNumber){
-        System.out.println("\n\n\n\n\n\n\n"+VIPNumber+"\n\n\n\n\n\n");
+        customers tempCustomer = customerService.queryCustomerByVIPNumber(VIPNumber);
+        showCustomer resultCustomer = new showCustomer();
+        resultCustomer.setVIPNumber(tempCustomer.getVIPNumber());
+        resultCustomer.setRealName(tempCustomer.getRealName());
+        resultCustomer.setSex(tempCustomer.getSex());
+        resultCustomer.setBirthday(tempCustomer.getBirthday());
+        resultCustomer.setLastDays((int)((tempCustomer.getEndDate()-System.currentTimeMillis())/86400000));
+        resultCustomer.setLessonNumber(tempCustomer.getLessonNumber());
+        List<GetInto> tempGetInto = getIntoService.queryGetintosByVIPNumber(VIPNumber);
+        List<showGetInto> resultGetInto = new ArrayList<>();
+        for(GetInto getInto : tempGetInto){
+            showGetInto tempShowGetInto = new showGetInto();
+            tempShowGetInto.setLessonUse(getInto.getLessonUse());
+            tempShowGetInto.setNotes(getInto.getNotes());
+            long time = getInto.getGetInTime();
+            String resultTime = new SimpleDateFormat("yyyy年MM月dd日").format(time);
+            tempShowGetInto.setGetInTime(resultTime);
+            resultGetInto.add(tempShowGetInto);
+        }
+        m.addAttribute("resultCustomer",resultCustomer);
+        m.addAttribute("resultGetInto",resultGetInto);
         return "query_result";
     }
 
