@@ -1,13 +1,12 @@
 package com.company.website.interceptor;
 
 import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class LoginInterceptor implements HandlerInterceptor {
+public class TeacherInterceptor implements HandlerInterceptor {
 
     /**
      * 进入controller层之前拦截请求
@@ -21,8 +20,8 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
 
         HttpSession session = request.getSession();
-        if(session.getAttribute("number") == null){
-            response.sendRedirect("/login");
+        if(session.getAttribute("job").equals("私教")){
+            response.sendRedirect("/auth_failed");
             return true;
         }
         return true;
