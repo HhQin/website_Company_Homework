@@ -17,7 +17,8 @@ public class TeacherInterceptor implements HandlerInterceptor {
      * @throws Exception
      */
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o)
+            throws Exception {
 
         HttpSession session = request.getSession();
         if(session.getAttribute("job").equals("私教")){
