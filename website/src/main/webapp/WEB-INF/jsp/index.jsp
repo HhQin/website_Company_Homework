@@ -472,8 +472,6 @@ $(function() {
 	<div class="copy">
 		<p>&copy; 2018 Fitness Club. All Rights Reserved | Design by Christopher </p>
 	</div>
-	<!--//end-footer-->
-	<!--start-smoth-scrolling-->
 			<script type="text/javascript">
 								jQuery(document).ready(function($) {
 									$(".scroll").click(function(event){		
@@ -482,20 +480,9 @@ $(function() {
 									});
 								});
 								</script>
-							<!--start-smoth-scrolling-->
 						<script type="text/javascript">
 									$(document).ready(function() {
-										/*
-										var defaults = {
-								  			containerID: 'toTop', // fading element id
-											containerHoverID: 'toTopHover', // fading element hover id
-											scrollSpeed: 1200,
-											easingType: 'linear' 
-								 		};
-										*/
-										
 										$().UItoTop({ easingType: 'easeOutQuart' });
-										
 									});
 								</script>
 		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>

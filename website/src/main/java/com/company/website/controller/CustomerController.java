@@ -85,7 +85,8 @@ public class CustomerController {
     }
 
     @RequestMapping(value = "/VIPManagement_VIP_add_check",method = RequestMethod.POST)
-    public String VIP_Add_Check(String name,String sex,String birthday,String identity,String endDate,Integer lessonNumber,String teacher,String telephone,String email)throws ParseException {
+    public String VIP_Add_Check(String name,String sex,String birthday,String identity,String endDate,
+                                Integer lessonNumber,String teacher,String telephone,String email)throws ParseException {
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");//可以方便地修改日期格式
         String nowtime = dateFormat.format(now);

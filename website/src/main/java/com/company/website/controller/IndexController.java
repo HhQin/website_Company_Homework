@@ -57,7 +57,6 @@ public class IndexController {
             resultlessons.add(showlesson);
         }
         m.addAttribute("resultlessons",resultlessons);
-
         Long tempBeginTime = System.currentTimeMillis()-(System.currentTimeMillis()%86400000);
         Long tempEndTime = tempBeginTime+86400000;
         List<showIndexGetInto> resultGetIntoRank = getIntoService.queryGetIntoNumberDesc(tempBeginTime,tempEndTime);
