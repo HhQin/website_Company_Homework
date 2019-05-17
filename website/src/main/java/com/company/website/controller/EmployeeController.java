@@ -29,7 +29,7 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/employeeManagement-employeeAdd-check",method = RequestMethod.POST)
-    public String lessonAddCheck(String name,String logname,String psw1,String sex,String birthday,String job,String telephone,String email){
+    public String employeeAddCheck(String name,String logname,String psw1,String sex,String birthday,String job,String telephone,String email){
         Date now = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");//可以方便地修改日期格式
         String nowtime = dateFormat.format(now);
