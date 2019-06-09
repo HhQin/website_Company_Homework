@@ -148,20 +148,20 @@
 									 <% List<items> resultitems = (List<items>)request.getAttribute("resultitems"); %>
 									 <% for(int i=0;i<resultitems.size();i++) {%>
 									 <tr>
-										 <td><% out.print(resultitems.get(i).getItemNumber()); %></td>
-										 <td><% out.print(resultitems.get(i).getItemName()); %></td>
-										 <td><% out.print(resultitems.get(i).getItemStatus()); %></td>
-										 <td>
+										 <td><center><% out.print(resultitems.get(i).getItemNumber()); %></center></td>
+										 <td><center><% out.print(resultitems.get(i).getItemName()); %></center></td>
+										 <td><center><% out.print(resultitems.get(i).getItemStatus()); %></center></td>
+										 <td><center>
 											 <button type="button" onclick="window.location.href='/itemManagement-itemModify-<% out.print(resultitems.get(i).getItemNumber()); %>'" class="btn bg-info light text-white fw600 text-center btn-sm btn-primary btn-block">点击修改</button>
-										 </td>
-										 <td>
+										 </center></td>
+										 <td><center>
 											 <button type="button" onclick=" var truthBeTold = window.confirm('请确认是否删除');
 													 if (truthBeTold) {
 													 window.location.href='/itemManagement-itemDeleteCheck-<% out.print(resultitems.get(i).getItemNumber()); %>';
 													 } else
 													 return false;"
 													 class="btn bg-danger dark text-white fw600 text-center btn-sm btn-primary btn-block">点击删除</button>
-										 </td>
+										 </center></td>
 									 </tr>
 									 <% } %>
 									 </tbody> 
@@ -183,9 +183,7 @@
 
 		</div>
 		<!-- footer -->
-		<div class="footer">
-			<p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-		</div>
+
 		<!-- //footer -->
 	</section>
 	<script src="js/bootstrap.js"></script>

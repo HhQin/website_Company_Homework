@@ -151,21 +151,21 @@
 									 <% List<showLessons> resultlessons = (List<showLessons>)request.getAttribute("resultlessons"); %>
 									 <% for(int i=0;i<resultlessons.size();i++) {%>
 									 <tr>
-										 <td><% out.print(resultlessons.get(i).getLessonName()); %></td>
-										 <td><% out.print(resultlessons.get(i).getDay()); %></td>
-										 <td><% out.print(resultlessons.get(i).getTime()); %></td>
-										 <td><% out.print(resultlessons.get(i).getTeacherName()); %></td>
-										 <td>
+										 <td><center><% out.print(resultlessons.get(i).getLessonName()); %></center></td>
+										 <td><center><% out.print(resultlessons.get(i).getDay()); %></center></td>
+										 <td><center><% out.print(resultlessons.get(i).getTime()); %></center></td>
+										 <td><center><% out.print(resultlessons.get(i).getTeacherName()); %></center></td>
+										 <td><center>
 											 <button type="button" onclick="window.location.href='/lessonsManagement-lessonModify-<% out.print(resultlessons.get(i).getLessonNum()); %>'" class="btn bg-info light text-white fw600 text-center btn-sm btn-primary btn-block">点击修改</button>
-										 </td>
-										 <td>
+										 </center></td>
+										 <td><center>
 											 <button type="button" onclick=" var truthBeTold = window.confirm('请确认是否删除');
 													 if (truthBeTold) {
 													 window.location.href='/lessonsManagement-lessonDeleteCheck-<% out.print(resultlessons.get(i).getLessonNum()); %>';
 													 } else
 													 return false;"
 													 class="btn bg-danger dark text-white fw600 text-center btn-sm btn-primary btn-block">点击删除</button>
-										 </td>
+										 </center></td>
 									 </tr>
 									 <% } %>
 									 </tbody> 
@@ -187,9 +187,7 @@
 
 		</div>
 		<!-- footer -->
-		<div class="footer">
-			<p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-		</div>
+
 		<!-- //footer -->
 	</section>
 	<script src="js/bootstrap.js"></script>

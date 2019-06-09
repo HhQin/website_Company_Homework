@@ -153,30 +153,30 @@
 						<% List<showCustomer> resultCustomer = (List<showCustomer>)request.getAttribute("resultCustomer"); %>
 						<% for(int i=0;i<resultCustomer.size();i++) {%>
 						<tr>
-							<td><% out.print(resultCustomer.get(i).getVIPNumber()); %></td>
-							<td><% out.print(resultCustomer.get(i).getRealName()); %></td>
-							<td><% out.print(resultCustomer.get(i).getSex()); %></td>
-							<td><% out.print(resultCustomer.get(i).getBirthday()); %></td>
-							<td><% out.print(resultCustomer.get(i).getBeginDay()); %></td>
-							<td><% if(resultCustomer.get(i).getLastDays()<=0){
+							<td><center><% out.print(resultCustomer.get(i).getVIPNumber()); %></center></td>
+							<td><center><% out.print(resultCustomer.get(i).getRealName()); %></center></td>
+							<td><center><% out.print(resultCustomer.get(i).getSex()); %></center></td>
+							<td><center><% out.print(resultCustomer.get(i).getBirthday()); %></center></td>
+							<td><center><% out.print(resultCustomer.get(i).getBeginDay()); %></center></td>
+							<td><center><% if(resultCustomer.get(i).getLastDays()<=0){
 							    out.print("已到期");
 							}else{
 								out.print(resultCustomer.get(i).getLastDays());
 							}
-							     %></td>
-							<td><% out.print(resultCustomer.get(i).getLessonNumber()); %></td>
-							<td><% out.print(resultCustomer.get(i).getTeacherName()); %></td>
-							<td>
+							     %></center></td>
+							<td><center><% out.print(resultCustomer.get(i).getLessonNumber()); %></center></td>
+							<td><center><% out.print(resultCustomer.get(i).getTeacherName()); %></center></td>
+							<td><center>
 								<button type="button" name="check" onclick="window.location.href='/customersManagement-customerModify-<% out.print(resultCustomer.get(i).getVIPNumber()); %>'" class="btn bg-info light text-white fw600 text-center btn-sm btn-primary btn-block">点击修改</button>
-							</td>
-							<td>
+							</center></td>
+							<td><center>
 								<button type="button" onclick=" var truthBeTold = window.confirm('请确认是否删除');
 										if (truthBeTold) {
 										window.location.href='/customersManagement-customerDeleteCheck-<% out.print(resultCustomer.get(i).getVIPNumber()); %>';
 										} else
 										return false;"
 										 class="btn bg-danger dark text-white fw600 text-center btn-sm btn-primary btn-block">点击删除</button>
-							</td>
+							</center></td>
 
 						</tr>
 						<% } %>
@@ -199,9 +199,7 @@
 
 	</div>
 	<!-- footer -->
-	<div class="footer">
-		<p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-	</div>
+
 	<!-- //footer -->
 </section>
 <script src="js/bootstrap.js"></script>

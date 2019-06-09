@@ -136,7 +136,7 @@
                                     <div class="form-group">
                                             <label for="focusedinput" class="col-sm-2 control-label">姓名</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="name" name="name">
+                                                <input type="text" class="form-control" placeholder="请输入20字符以内的中文名字" id="name" name="name">
                                             </div>
                                         </div>
 									<div class="form-group">
@@ -148,13 +148,13 @@
 									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">密码</label>
 										<div class="col-sm-8">
-											<input type="password" class="form-control" id="psw1" name="psw1">
+											<input type="password" class="form-control" placeholder="建议设置字母与数字混合的8-20字符密码" id="psw1" name="psw1">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">请再次输入密码</label>
 										<div class="col-sm-8">
-											<input type="password" class="form-control" id="psw2" name="psw2">
+											<input type="password" class="form-control" placeholder="请重复确认以上密码" id="psw2" name="psw2">
 										</div>
 									</div>
 									<div class="form-group">
@@ -182,13 +182,13 @@
 									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">电话号码</label>
 										<div class="col-sm-8">
-											<input type="text" class="form-control" id="telephone" name="telephone">
+											<input type="text" class="form-control" placeholder="请输入11字符以内数字" id="telephone" name="telephone">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">电子邮箱</label>
 										<div class="col-sm-8">
-											<input type="text" class="form-control" id="email" name="email">
+											<input type="text" class="form-control" placeholder="建议输入格式为***@**.**的邮箱地址" id="email" name="email">
 										</div>
 									</div>
                                     
@@ -209,9 +209,7 @@
 
 		</div>
 		<!-- footer -->
-		<div class="footer">
-			<p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-		</div>
+
 		<!-- //footer -->
 	</section>
 	<script src="js/bootstrap.js"></script>

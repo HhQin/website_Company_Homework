@@ -138,7 +138,7 @@
                                     <div class="form-group">
                                             <label for="focusedinput" class="col-sm-2 control-label">姓名</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="name" id="name">
+                                                <input type="text" class="form-control" placeholder="请输入20字符以内的中文名字" name="name" id="name">
                                             </div>
                                         </div>
                                     <div class="form-group">
@@ -170,12 +170,13 @@
                                     <div class="form-group">
                                             <label for="focusedinput" class="col-sm-2 control-label">购买私教课时数</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" name="lessonNumber" id="lessonNumber" value="0">
+                                                <input type="text" class="form-control" placeholder="请输入正整数" name="lessonNumber" id="lessonNumber" value="0">
                                             </div>
                                         </div>
                                     <div class="form-group">
                                         <label for="selector1" class="col-sm-2 control-label">专属私教</label>
                                         <div class="col-sm-8"><select name="teacher" id="teacher" class="form-control1">
+											<option>----</option>
 											<% List<employees> teachers = (List<employees>)request.getAttribute("teachers"); %>
 											<% for(int i=0;i<teachers.size();i++) {%>
 											<option value="<% out.print(teachers.get(i).getUserNum()); %>"><% out.print(teachers.get(i).getRealName()); %></option>
@@ -185,13 +186,13 @@
 									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">电话号码</label>
 										<div class="col-sm-8">
-											<input type="text" class="form-control" name="telephone" id="telephone">
+											<input type="text" class="form-control"  name="telephone" id="telephone" placeholder="请输入11字符以内数字">
 										</div>
 									</div>
 									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">邮箱</label>
 										<div class="col-sm-8">
-											<input type="text" class="form-control" name="email" id="email">
+											<input type="text" class="form-control" name="email" id="email" placeholder="建议输入格式为***@**.**的邮箱地址">
 										</div>
 									</div>
 
@@ -212,9 +213,7 @@
 
 		</div>
 		<!-- footer -->
-		<div class="footer">
-			<p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-		</div>
+
 		<!-- //footer -->
 	</section>
 	<script src="js/bootstrap.js"></script>

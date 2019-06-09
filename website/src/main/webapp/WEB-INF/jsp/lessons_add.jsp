@@ -138,7 +138,7 @@
                                     <div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label" >课程名</label>
 										<div class="col-sm-8">
-											<input type="text" class="form-control" id="LessonName" name="LessonName">
+											<input type="text" class="form-control" placeholder="建议输入20字符以内的课程名" id="LessonName" name="LessonName">
 										</div>
 									</div>
 									<div class="form-group">
@@ -159,6 +159,7 @@
 									<div class="form-group">
 										<label for="focusedinput" class="col-sm-2 control-label">授课老师</label>
 										<div class="col-sm-8"><select name="TeacherNum" id="TeacherNum" class="form-control1">
+											<option>----</option>
 											<% List<employees> teachers = (List<employees>)request.getAttribute("teachers"); %>
 											<% for(int i=0;i<teachers.size();i++) {%>
 											<option value="<% out.print(teachers.get(i).getUserNum()); %>"><% out.print(teachers.get(i).getRealName()); %></option>
@@ -193,9 +194,7 @@
 
 		</div>
 		<!-- footer -->
-		<div class="footer">
-			<p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-		</div>
+
 		<!-- //footer -->
 	</section>
 	<script src="js/bootstrap.js"></script>

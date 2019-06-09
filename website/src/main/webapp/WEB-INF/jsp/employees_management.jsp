@@ -140,6 +140,7 @@
 													 <th>编 号</th>
 													 <th>姓 名</th>
 													 <th>性 别</th>
+												 	 <th>职 位</th>
                                                      <th>电话号码</th>
                                                      <th>电子邮箱</th>
 												     <th>修 改</th>
@@ -150,22 +151,23 @@
 									 <% List<employees> resultEmployees = (List<employees>)request.getAttribute("resultEmployees"); %>
 									 <% for(int i=0;i<resultEmployees.size();i++) {%>
 									 <tr>
-										 <td><% out.print(resultEmployees.get(i).getUserNum()); %></td>
-										 <td><% out.print(resultEmployees.get(i).getRealName()); %></td>
-										 <td><% out.print(resultEmployees.get(i).getSex()); %></td>
-                                         <td><% out.print(resultEmployees.get(i).getTelephone()); %></td>
-                                         <td><% out.print(resultEmployees.get(i).getEmail()); %></td>
-										 <td>
+										 <td><center><% out.print(resultEmployees.get(i).getUserNum()); %></center></td>
+										 <td><center><% out.print(resultEmployees.get(i).getRealName()); %></center></td>
+										 <td><center><% out.print(resultEmployees.get(i).getSex()); %></center></td>
+										 <td><center><% out.print(resultEmployees.get(i).getJob()); %></center></td>
+                                         <td><center><% out.print(resultEmployees.get(i).getTelephone()); %></center></td>
+                                         <td><center><% out.print(resultEmployees.get(i).getEmail()); %></center></td>
+										 <td><center>
 											 <button type="button" onclick="window.location.href='/employeesManagement-employeesModify-<% out.print(resultEmployees.get(i).getUserNum()); %>'" class="btn bg-info light text-white fw600 text-center btn-sm btn-primary btn-block">点击修改</button>
-										 </td>
-										 <td>
+										 </center></td>
+										 <td><center>
 											 <button type="button" onclick=" var truthBeTold = window.confirm('请确认是否删除');
 													 if (truthBeTold) {
 													 window.location.href='/employeesManagement-employeesDeleteCheck-<% out.print(resultEmployees.get(i).getUserNum()); %>';
 													 } else
 													 return false;"
 													 class="btn bg-danger dark text-white fw600 text-center btn-sm btn-primary btn-block">点击删除</button>
-										 </td>
+										 </center></td>
 									 </tr>
 									 <% } %>
 									 </tbody> 
@@ -187,9 +189,7 @@
 
 		</div>
 		<!-- footer -->
-		<div class="footer">
-			<p>Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a></p>
-		</div>
+
 		<!-- //footer -->
 	</section>
 	<script src="js/bootstrap.js"></script>
